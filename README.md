@@ -26,3 +26,7 @@ After reviewing the options and creating the new install, partake in the followi
 1. `cd` to the directory `chicagoreporter/`
 2. `git clone git@github.com:INN/umbrella-chicagoreporter.git`
 3. Copy the contents of the new directory `umbrella-chicagoreporter/` into `htdocs/`, including all hidden files whose names start with `.` periods.
+
+## Catalyst export instructions
+
+See [migration-notes.md](./migration-notes.md).
