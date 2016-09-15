@@ -11,7 +11,7 @@ Prompt | Text to enter
 ------------ | -------------
 Name of new site directory: | chicagoreporter
 Blueprint to use (leave blank for none or use largo): | largo
-Domain to use (leave blank for largo-umbrella.dev): | chicagoreoprter.vagrant.dev
+Domain to use (leave blank for largo-umbrella.dev): | chicagoreporter.vagrant.dev
 WordPress version to install (leave blank for latest version or trunk for trunk/nightly version): | *hit [Enter]*
 Install as multisite? (y/N): | n
 Install as subdomain or subdirectory? : | subdomain
