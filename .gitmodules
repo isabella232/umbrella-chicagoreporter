@@ -5,7 +5,7 @@
 	path = wp-scripts
 	url = git@github.com:INN/wp-scripts.git
 [submodule "wp-content/themes/largo"]
-	path = wp-content/themes/largo
+	path = wp-content/themes/largo-dev
 	url = git@github.com:INN/Largo.git
 [submodule "wp-content/themes/chicago-reporter"]
 	path = wp-content/themes/chicago-reporter
