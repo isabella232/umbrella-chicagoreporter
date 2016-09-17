@@ -7,12 +7,12 @@ This assumes:
 - Familiarity with WPEngine support
 
 1. Set up the Reporter database
-	1. Follow the instructions from https://github.com/INN/migration-scripts/blob/master/sql-utils/prepare_for_export.sql.md to export the Chicago Reporter database and convert it to a single-site install.
+	1. Follow the instructions from https://github.com/INN/migration-scripts/blob/master/sql-utils/prepare_for_export.sql.md to export the Chicago Reporter database and convert it to a single-site install. Use the `reporter_to_singlesite.sql` script provided in this repository.
 	2. Install the Reporter database on your local vagrant machine by uploading the `migration.sql` dumped database:`fab vagrant.reload_db:migration.sql`
 	3. Using Sequel Pro or another database editor, in the `wp_options` table change the option_values of the option_names `siteurl` and `home` to `http://chicagoreporter.vagrant.dev/`
-
-3. Run the migration
-	1. tktk wp-cli command
+	4. Run the migration
+		1. tktk wp-cli command
+	5. Prune the site's wp_users table using the `prune_wp_users.sql` script provided in this repository.
 
 4. Export the database for chicagoreporte.wpengine.com
 	1. Using Sequel Pro or another database editor, in the `wp_options` table change the option_values of the optn_names `siteurl` and `home` to `http://chicagoreporte.wpengine.com/`
