@@ -19,3 +19,5 @@ This assumes:
 	2. `fab vagrant.dump_db:ready_for_import.sql`
 	3. Use SFTP to push `ready_for_import.sql` to `chicagoreporte/_wpeprivate/`
 	4. Ask WPE Support to load that database on the chicagoreporte install
+
+5. Log in and reset permalinks
