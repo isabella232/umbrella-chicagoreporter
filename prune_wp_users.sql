@@ -40,3 +40,6 @@ delete wp_usermeta from wp_usermeta
   left outer join blog_user_ids
   on wp_usermeta.user_id = blog_user_ids.user_id
   where blog_user_ids.user_id is null;
+
+-- Change the wp_##_capabilities key in wp_usermeta
+update wp_usermeta  set meta_key = 'wp_capabilities' where meta_key like 'wp_%_capabilities';
