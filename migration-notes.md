@@ -32,7 +32,7 @@ This assumes:
 	5. Prune the site's wp_users table using the `prune_wp_users.sql` script provided in this repository.
 
 4. Export the database for chicagoreporte.wpengine.com
-	1. Using Sequel Pro or another database editor, in the `wp_options` table change the option_values of the optn_names `siteurl` and `home` to `http://chicagoreporte.wpengine.com/`
+	1. Using Sequel Pro or another database editor, in the `wp_options` table change the option_values of the optino_names `siteurl` and `home` to `http://chicagoreporte.wpengine.com/`, and in the wp_options table, set the option_name 'upload_path' to option_value 'wp-content/uploads'
 	2. `fab vagrant.dump_db:ready_for_import.sql`
 	3. Use SFTP to push `ready_for_import.sql` to `chicagoreporte/_wpeprivate/`
 	4. Ask WPE Support to load that database on the chicagoreporte install
