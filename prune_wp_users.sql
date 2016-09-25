@@ -43,3 +43,9 @@ delete wp_usermeta from wp_usermeta
 
 -- Change the wp_##_capabilities key in wp_usermeta
 update wp_usermeta  set meta_key = 'wp_capabilities' where meta_key like 'wp_%_capabilities';
+
+-- remove duplicate rows
+delete b
+	from wp_usermeta a join wp_usermeta b
+	using ( user_id, meta_key, meta_value )
+	where a.umeta_id < b.umeta_id
