@@ -30,6 +30,7 @@ This assumes:
 		2. `cd /srv/www/chicago-reporter/htdocs/`
 		3. `wp cr perform_all_migrations `
 	5. Prune the site's wp_users table using the `prune_wp_users.sql` script provided in this repository.
+	6. `wp search-replace '/files/' '/wp-content/uploads/' wp_posts wp_postmeta wp_usermeta wp_termmeta --skip-columns=guid`
 
 4. Export the database for chicagoreporte.wpengine.com
 	1. Using Sequel Pro or another database editor, in the `wp_options` table change the option_values of the optino_names `siteurl` and `home` to `http://chicagoreporte.wpengine.com/`, and in the wp_options table, set the option_name 'upload_path' to option_value 'wp-content/uploads'
