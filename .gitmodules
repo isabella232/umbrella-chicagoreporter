@@ -10,3 +10,6 @@
 [submodule "wp-content/themes/chicago-reporter"]
 	path = wp-content/themes/chicago-reporter
 	url = git@bitbucket.org:projectlargo/theme-chicago-reporter.git
+[submodule "wp-content/plugins/client-hosting-manager"]
+	path = wp-content/plugins/client-hosting-manager
+	url = git@github.com:INN/client-hosting-manager.git
