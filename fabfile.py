@@ -41,7 +41,7 @@ def staging():
     env.hosts       = [ os.environ['CHICAGOREPORTE_STAGING_SFTP_HOST'], ]    # ssh host for staging.
     env.user        = os.environ['CHICAGOREPORTE_STAGING_SFTP_USER']    # ssh user for staging.
     env.password    = os.environ['CHICAGOREPORTE_STAGING_SFTP_PASSWORD']    # ssh password for staging.
-    env.domain      = ''  # chicagoreporte.staging.wpengine.com
+    env.domain      = 'chicagoreporte.staging.wpengine.com'  # chicagoreporte.staging.wpengine.com
     env.port        = '2222'
 
 try:
