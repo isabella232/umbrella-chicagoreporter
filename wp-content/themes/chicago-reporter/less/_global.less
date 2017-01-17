@@ -1,0 +1,95 @@
+/**
+ * 2.0 - Global Styles
+ * =======================
+ * 2.1 - Imported Layout.sass Chicago Reporter
+ * 2.8 - Imported Responsive Styles for Chicago Reporter
+ */
+
+/**
+ * 2.1 - Largo Parent Overrides
+ * -----------------------
+ */
+
+body {
+  font-family: @sans;
+}
+h4,
+h2 {
+  a {
+    color: @black;
+  }
+  a:hover {
+    color: @red;
+    text-decoration: initial;
+  }
+}
+
+.entry-title a,
+#homepage-featured .top-story h2,
+h1.page-title,
+h1.entry-title {
+  font-family: @title;
+  margin-bottom: 18px;
+}
+.entry-content {
+  p {
+    font-size: 16px;
+  }
+  h1, 
+  h2, 
+  h3 {
+    margin-bottom: 0;
+    font-family: @title;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+}
+a {
+  color: @turquoise;
+}
+
+.pager a {
+  .cr-button;
+  color: @white;
+  font-weight: bold;
+  font-family: @title;
+  text-transform: uppercase;
+  &:hover {
+    background-image: none;
+  }
+}
+
+h5.top-tag {
+  a {
+    color: @red;
+  }
+}
+
+.sub-stories {
+  margin-left: 0;
+}
+
+/* byline styles */
+.byline a {
+  color: @turquoise;
+}
+h5.byline {
+  font-size: 16px;
+}
+
+
+/**
+  * 2.4 - Button Styles
+  * -----------------------
+  */
+
+.button {
+  .cr-button;
+}
