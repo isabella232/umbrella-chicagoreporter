@@ -1,0 +1,164 @@
+/**
+ * Styles for post archives 
+ */
+
+@media (max-width: 768px) {
+  .stories {
+    .has-post-thumbnail img.wp-post-image {
+      width: 100%;
+      height: auto;
+      float: none;
+
+      -webkit-box-shadow: 0 2px 4px #dddddd;
+      -moz-box-shadow: 0 2px 4px #dddddd;
+      box-shadow: 0 2px 4px #dddddd;
+    }
+  }
+}
+@media (min-width: 769px) {
+  .stories {
+    .has-post-thumbnail img.wp-post-image {
+      float: left;
+      margin: 4px 12px 6px 0;
+      height: 150px;
+      width: auto;
+      -webkit-box-shadow: 0 2px 4px #dddddd;
+      -moz-box-shadow: 0 2px 4px #dddddd;
+      box-shadow: 0 2px 4px #dddddd;
+    }
+  }
+}
+.stories .has-post-thumbnail img.avatar.wp-post-image {
+  float: none;
+  margin: 0;
+  height: auto;
+  width: auto;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/**
+ * Styles for series landing pages
+ */
+.tax-reporter-issues .archive-description img,
+.tax-catalyst-issues .archive-description img,
+.single-cftl-tax-landing #series-header img {
+  float: left;
+  margin-right: 20px;
+  max-width: 175px;
+  height: auto;
+}
+#series-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #cccbcb;
+}
+.tax-reporter-issues,
+.tax-catalyst-issues {
+  .archive-background {
+    p {
+      font-size: @baseline;
+    }
+    .post-edit-link {
+      color: @red;
+      float: right;
+    }
+  }
+}
+
+.tax-reporter-issues .post-edit-link,
+.tax-catalyst-issues .post-edit-link {
+}
+/**
+ * Styles for the landing-archive shortcode
+ */
+.landing-archive {
+  margin: 0 0 0 0;
+  li {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+  li article {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #aaa;
+    clear: both;
+  }
+  li:last-child article {
+    border-bottom: none;
+  }
+  h1.entry-title {
+    margin-bottom: 8px;
+    > a {
+      color: @black;
+      &:hover {
+        color: @red;
+        text-decoration: initial;
+      }
+    }
+  }
+  .issue-pdf {
+    text-align: right;
+  }
+
+  #landing-archive-nav {
+    margin-bottom: 1.5em;
+    overflow: hidden;
+  }
+
+  .year-select {
+    padding: 10px;
+    background-color: #f2f2f2;
+    margin-bottom: 1em;
+    label {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+    select {
+      vertical-align: baseline;
+      margin-bottom: 0;
+    }
+    .single-cftl-tax-landing {
+      #series-header {
+        overflow: hidden;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #cccbcb;
+        .entry-title {
+          font-size: 56px;
+          margin: 0.5em 0;
+        }
+        .issue-publication-date {
+          float: right;
+        }
+      }
+    }
+    img {
+      float: left;
+      margin-right: 20px;
+      max-width: 175px;
+      height: auto;
+    }
+    .description {
+      display: none;
+    }
+  }
+}
+
+.tax-reporter-issues .stories,
+.tax-catalyst-issues .stories,
+#series-main {
+  article {
+    div.entry-content {
+      .clearfix;
+    }
+    .has-thumbnail.is-empty {
+      display: none;
+    }
+  }
+}
