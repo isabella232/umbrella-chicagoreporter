@@ -1,0 +1,47 @@
+/**
+ * 5.0 - Single
+ * =======================
+ * 5.1 - Imported Chicago Reporter Sass (prose.sass)
+ */
+
+h1.entry-title {
+  line-height: 1.1;
+}
+
+.byline .author,
+.byline .time-ago,
+.byline .edit-link a {
+  text-transform: none;
+}
+
+.widgettitle,
+.stories h3.widgettitle {
+  text-transform: none;
+}
+
+p.wp-caption-text {
+  margin: 5px 0px 24px 0px;
+  font-size: 14px !important; // This is !important in Largo, ugh
+}
+
+body.single-post.classic .hero {
+  margin-bottom: 24px;
+}
+
+.archive-background h1 {
+  text-transform: capitalize;
+}
+
+.author-box ul li.author-posts-link {
+  .cr-button;
+  &:hover {
+    color: @white;
+    background-color: @gray;
+    background-image: none;
+  }
+}
+
+body.normal.single-post article.post > header .sep,
+body.normal.single-post article.post > header .entry-date {
+  display: inline;
+}

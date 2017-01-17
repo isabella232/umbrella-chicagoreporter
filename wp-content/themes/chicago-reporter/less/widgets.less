@@ -1,0 +1,109 @@
+/**
+ * General widget styles
+ */
+.widgettitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+
+/**
+ * magazine issues widget
+ * footer-specific styles are in the next major decloaration below this one
+ */
+.magazine-issue {
+  background-color: @blue_light;
+  padding: 15px;
+  overflow: auto;
+  .magazine-image {
+    float: left;
+    max-width: 100px;
+    margin: 0 10px 10px 0;
+  }
+  .magazine-content {
+    display: block;
+    margin-left: 110px;
+    p {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      line-height: 1.1;
+    }
+    font-family: @title;
+    font-weight: bold;
+    a {
+      text-transform: uppercase;
+    }
+  }
+  .magazine-content-cta {
+    line-height: 1.2;
+  }
+  a {
+    color: @red;
+    &:hover {
+      color: @black;
+    }
+  }
+
+  img {
+    box-shadow:0 2px 6px rgba(0,0,1,.6);
+    -webkit-box-shadow:0 2px 6px rgba(0,0,1,.6);
+    -moz-box-shadow:0 2px 6px rgba(0,0,1,.6);
+  }
+}
+
+#site-footer {
+  .magazine-issue {
+    background-color: #a7a7a7;
+
+    .magazine-image {
+      margin-right: 10px;
+    }
+
+    .magazine-content {
+      max-width: 100%;
+      font-size: 1.8em;
+      p {
+        font-size: 20px;;
+      }
+      a {
+        color: @black;
+        &:hover {
+          color: @red;
+          text-decoration: initial;
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Email signup textwidget contents
+ */
+.salsa_email_signup {
+  float:left;
+  margin-right: 10px;
+  margin-top: 10px;
+  input {
+    float: left;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+  }
+  .short-field {
+    width: 80px;
+    clear: left;
+    margin-right: 5px;
+  }
+  input[type="submit"] {
+    .cr-button;
+    width: 60px;
+    float: left;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.largo-twitter iframe {
+  max-height: 600px;
+}

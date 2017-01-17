@@ -1,0 +1,50 @@
+.entry-content .tax-term-listing {
+  img.thumb {
+    max-width: 80px;
+  }
+  h3 {
+	font-size: 32px;
+	margin-bottom: 8px;
+	&.widgettitle {
+	  border-bottom: 1px solid #aaa;
+	  a {
+	    color: #333;
+	  }
+	}
+    &.entry-title {
+      font-size: 24px;
+      margin-bottom: 0;
+    }
+  }
+  h5.byline {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    font-size: 15px;
+  }
+  p {
+    font-size: 18px;
+    margin-bottom: 8px;
+    &.recent {
+      font-size: 15px;
+      span {
+        font-size: 11px;
+        font-style: italic;
+      }
+    }
+  }
+  article {
+    margin-bottom: 8px;
+  }
+  .item {
+    margin-top: 36px;
+    margin-bottom: 36px;
+    &::after {
+      content: "";
+      visibility: hidden;
+      display: block;
+      height: 0;
+      clear: both;
+      opacity: 0;
+    }
+  }
+}

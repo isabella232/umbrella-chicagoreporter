@@ -1,0 +1,88 @@
+/**
+ * 1.1 - Variables
+ * =======================
+ * 1.1.1 - Colors
+ * 1.1.2 - Fonts
+ */
+
+
+ /**
+  * 1.1.1 Colors - Global and Brand
+  * -----------------------
+  */
+
+/* Default Variable Names
+ * @red, @orange, @yellow
+ * @green, @blue, @purple
+ * @brown, @gray, @black
+ *
+ * @link
+ * @link_hover
+ * @brand_primary (only use if different from default color already in use)
+ * @brand_secondary (only use if different from default color already in use)
+ *
+ * VARIATIONS
+ * @*_light, @*_dark, @*_transparent
+----------------------------- */
+
+@white: #fff;
+@black: #000;
+@red: #cc3300;
+@orange: #f89406;
+//@blue: #2275bb;
+@turquoise: #3d9999;
+@blue: @turquoise;
+@gray: #a6a6a6;
+
+@navcolor: #f5f5f5;
+@navup: #8e8e8e;
+@navactive: #727272;
+
+@blue_light: #dae2e3;
+@gray_light: #c4c4c4;
+@orange_dark: darken( @orange, 10% );
+@fog: #dbdada; // copied from theme-chicago-catalyst
+
+// Navbar variables
+@navbarFontSize: 20px;
+@navbarBackground: @navcolor;
+
+// Navbar dropdowns
+@dropdownBackground: @navup;
+
+// Main navbar
+@navbarLinkColorHover: @white;
+@navbarLinkBackgroundActive: @navup;
+@navbarDropdownCaretColor: @navup;
+
+// Sticky navbar
+@stickyNavbarText: @white;
+@stickyNavbarLinkColor: @stickyNavbarText;
+@stickyNavbarLinkColorHover: darken(@stickyNavbarLinkColor, 5%);
+@stickyNavbarBackgroundColor: @black;
+@stickyNavbarDropdownCaretColor: @stickyNavbarLinkColor;
+@stickyNavbarDropdownCaretColorHover: @stickyNavbarLinkColorHover;
+
+/**
+ * 1.1.2 - Font Definitions
+ * -----------------------
+ */
+
+/* @title
+ * Typeface Name
+ * Used on headlines throughout site
+ */
+@title: "Open Sans Condensed", sans-serif;
+
+/* @serif
+ * Typeface Name
+ * For body and other general applications
+ */
+@serif: "Georgia",serif;
+
+
+/* @sans
+ * Typeface Name
+ * For labels, bylines, photo credits, etc
+ */
+@sans:  "Open Sans", "Helvetica Neue", "Helvetica",sans-serif;

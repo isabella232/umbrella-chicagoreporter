@@ -1,0 +1,103 @@
+/**
+ * 3.0 - Header Styles
+ * =======================
+ * 3.1 - Sass import
+ */
+
+// Donate Area - Upper Right
+#home-upper-right {
+  float: right;
+  width: 300px;
+  margin-top: 20px;
+  h4 {
+    font-family: "Open Sans", sans-serif;
+    text-transform: lowercase;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .donate-button {
+  padding: 4px 38px;
+  font-size: 24px;
+  text-transform: uppercase;
+    &:hover {
+      color: @white;
+      background-color: @gray;
+      background-image: none;
+      text-decoration: none;
+    }
+  }
+  .button {
+    .cr-button;
+  }
+}
+
+/* Navigation Styles */
+#main-nav.navbar {
+  border-top: none;
+  border-bottom: none;
+
+  .navbar-inner {
+    border-bottom: 2px solid @red;
+  }
+}
+
+.navbar {
+  li {
+    text-transform: uppercase;
+    font-family: @title;
+
+    a {
+      font-weight: bold;
+    }
+  }
+}
+
+.sticky-nav-holder {
+  border-bottom: none;
+}
+
+.navbar,
+.navbar.sticky-navbar {
+  li.dropdown {
+    .dropdown-menu {
+      margin-top: 0px;
+      background-color: @navup;
+      border-top: none;
+
+      &::before,
+      &::after {
+        display: none;
+        border-top: none;
+      }
+
+      li a {
+        color: @white;
+        &:hover {
+          color: @white;
+          background: @navactive;
+        }
+      }
+    }
+  }
+}
+
+/* Topics Bar Styles */
+#topics-bar {
+  .menu-label {
+    font-color: @black;
+    font-family: @title;
+  }
+  li a {
+    color: @turquoise;
+    font-weight: 500;
+  }
+}
+
+/* RSS Subscription links */
+.rss-subscribe-link {
+  color: @orange;
+  &:hover {
+    text-decoration: none;
+    color: @orange_dark;
+  }
+}
