@@ -12,6 +12,7 @@
 	<?php do_action('largo_before_post_header'); ?>
 
 	<?php
+		// maybe abstract this so that it can be used in the series landing page?
 		printf (
 			'<header style="background-image:url(%1$s)">',
 			"http://placekitten.com/4000/3000" // this needs to be set to something real
