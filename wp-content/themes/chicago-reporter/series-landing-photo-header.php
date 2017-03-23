@@ -3,6 +3,12 @@
  * Template Name: Series Landing Page, Photo Header
  * Description: The default template for a series landing page. Many display options are set via admin. This has a full-width featured image header.
  */
+
+add_filter( 'body_class', function( $classes ) {
+	$classes[] = 'photo-header';
+	return $classes;
+} );
+
 get_header();
 
 // Load up our meta data and whatnot
