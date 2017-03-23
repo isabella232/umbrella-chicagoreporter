@@ -53,6 +53,14 @@ function cr_styles_less() {
 	wp_dequeue_style( 'largo-child-styles' );
 	$suffix = (LARGO_DEBUG)? '' : '.min';
 	wp_enqueue_style( 'chicagoreporter', get_stylesheet_directory_uri().'/css/chicagoreporter' . $suffix . '.css' );
+
+
+	// if the post template uses the photo header, include those styles 
+	global $template;
+	if ( basename( $template ) === 'single-photo-header.php' ) {
+		var_log( "success" );
+		wp_enqueue_style( 'chicagoreporter-photo-header', get_stylesheet_directory_uri().'/css/photo-header' . $suffix . '.css' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'cr_styles_less', 20 );
 
