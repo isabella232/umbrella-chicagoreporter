@@ -22,6 +22,7 @@ function largo_child_require_files() {
 		'/inc/tax-shortcode.php',
 		'/inc/thumb-shortcode.php',
 		'/inc/post-tags.php',
+		'/inc/photo-header-template.php',
 		'/inc/widgets/cr-magazine-widget.php',
 		'/homepages/layouts/ChicagoReporter.php'
 	);
@@ -58,7 +59,6 @@ function cr_styles_less() {
 	// if the post template uses the photo header, include those styles 
 	global $template;
 	if ( basename( $template ) === 'single-photo-header.php' ) {
-		var_log( "success" );
 		wp_enqueue_style( 'chicagoreporter-photo-header', get_stylesheet_directory_uri().'/css/photo-header' . $suffix . '.css' );
 	}
 }
