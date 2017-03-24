@@ -15,6 +15,7 @@ wp-scripts/*
 Thumbs.db
 Capfile
 /config
+._*
 
 # wordpress specific
 wp-config.php
