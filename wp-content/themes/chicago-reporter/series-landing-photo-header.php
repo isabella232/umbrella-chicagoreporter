@@ -47,29 +47,31 @@ $content_span = array( 'one-column' => 12, 'two-column' => 8, 'three-column' => 
 ?>
 
 <?php if ( $opt['header_enabled'] ) : ?>
-	<section id="series-header" class="span12">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
-		<?php
-		if ( $opt['show_series_byline'] )
-			echo '<h5 class="byline">' . largo_byline( false ) . '</h5>';
-		if ( $opt['show_sharebar'] )
-			largo_post_social_links();
-		?>
-		<div class="description">
-			<?php echo apply_filters( 'the_content', $post->post_excerpt ); ?>
-		</div>
-		<?php
-		if ( 'standard' == $opt['header_style'] ) {
-			//need to set a size, make this responsive, etc
-			?>
-			<div class="full series-banner full-image"><?php the_post_thumbnail( 'full' ); ?></div>
-		<?php
-		} else {
-			the_content();
-		}
-		?>
-	</section>
 	</div><!-- end main div -->
+	<?php
+		// because series landing pages are pages, get_post_thumbnail_id() works here
+		cr_ph_header_tag( get_post_thumbnail_id() );
+	?>
+		<section id="series-header" class="span12">
+			<h1 class="entry-title"><?php the_title(); ?></h1>
+			<?php
+			if ( $opt['show_series_byline'] )
+				echo '<h5 class="byline">' . largo_byline( false ) . '</h5>';
+			if ( $opt['show_sharebar'] )
+				largo_post_social_links();
+			?>
+			<div class="description">
+				<?php echo apply_filters( 'the_content', $post->post_excerpt ); ?>
+			</div>
+			<?php
+			if ( 'standard' == $opt['header_style'] ) {
+				//need to set a size, make this responsive, etc
+			} else {
+				the_content();
+			}
+			?>
+		</section>
+	</header>
 	<div id="series-main" class="row-fluid clearfix">
 <?php endif; ?>
 
