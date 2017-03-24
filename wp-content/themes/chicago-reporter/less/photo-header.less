@@ -34,14 +34,21 @@ h5.top-tag a {
 	color: white;
 }
 
-.entry-content p {
-	font-size: 18px;
-	line-height: 1.7;
-}
-
 section.entry-content.clearfix {
 	border-left: 1px solid @gray;
 	padding-left: 50px;
 	max-width: 850px;
 	margin: 0 auto;
+}
+
+.entry-content blockquote {
+	float: right;
+	border-top: 5px solid @red;
+	border-left: none;
+	width: 400px;
+	p {
+		font-family: @title;
+		font-weight: bold;
+		font-size: 32px;
+	}
 }
