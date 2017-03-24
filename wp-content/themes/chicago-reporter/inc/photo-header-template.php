@@ -34,7 +34,7 @@ function cr_ph_header_tag( $post = null ) {
 			'medium' => '336',
 			'large' => '771',
 			'two-third-full' => '780',
-			'rect_thumb' => '800',
+			'rect_thumb' => '800', // this is 800x400 exact, we may not want to keep it
 			'full' => '1170',
 		);
 
