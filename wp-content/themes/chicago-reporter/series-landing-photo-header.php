@@ -2,6 +2,10 @@
 /**
  * Template Name: Series Landing Page, Photo Header
  * Description: The default template for a series landing page. Many display options are set via admin. This has a full-width featured image header.
+ *
+ * Things that don't work in this template:
+ * - the layout chooser
+ * - the posts-per-page chooser (9 is forced)
  */
 
 add_filter( 'body_class', function( $classes ) {
@@ -42,8 +46,6 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 	 */
 }
 
-// #content span width helper
-$content_span = array( 'one-column' => 12, 'two-column' => 8, 'three-column' => 5 );
 ?>
 
 <?php if ( $opt['header_enabled'] ) : ?>
@@ -76,22 +78,7 @@ $content_span = array( 'one-column' => 12, 'two-column' => 8, 'three-column' => 
 <?php endif; ?>
 
 
-<?php // display left rail
-if ( 'three-column' == $opt['cftl_layout'] ) :
-		$left_rail = $opt['left_region'];
-?>
-	<aside id="sidebar-left" class="span3">
-		<div class="widget-area" role="complementary">
-			<?php
-				dynamic_sidebar($left_rail);
-			?>
-		</div>
-	</aside>
-<?php
-endif;
-?>
-
-<div id="content" class="span<?php echo $content_span[ $opt['cftl_layout'] ]; ?> stories" role="main">
+<div id="content" class="span12 stories" role="main">
 <?php
 
 global $wp_query, $post;
@@ -110,7 +97,7 @@ if ( isset( $wp_query->query_vars['term'] )
 		'taxonomy' 			=> 'series',
 		'term' 				=> $series,
 		'order' 			=> 'DESC',
-		'posts_per_page' 	=> $opt['per_page']
+		'posts_per_page' 	=> 9
 	);
 
 	//stores original 'paged' value in 'pageholder'
@@ -157,27 +144,6 @@ if ( isset( $wp_query->query_vars['term'] )
 </div><!-- /.grid_8 #content -->
 
 <?php // display left rail
-if ($opt['cftl_layout'] != 'one-column') :
-	if (!empty($opt['right_region']) && $opt['right_region'] !== 'none') {
-		$right_rail = $opt['right_region'];
-	} else {
-		$right_rail = 'single';
-	}
-?>
-<aside id="sidebar" class="span4">
-	<?php do_action('largo_before_sidebar_content'); ?>
-	<div class="widget-area" role="complementary">
-		<?php
-			do_action('largo_before_sidebar_widgets');
-			dynamic_sidebar($right_rail);
-			do_action('largo_after_sidebar_widgets');
-		?>
-	</div><!-- .widget-area -->
-	<?php do_action('largo_after_sidebar_content'); ?>
-</aside>
-
-<?php
-endif;
 
 //display series footer
 if ( 'none' != $opt['footer_style'] ) : ?>
