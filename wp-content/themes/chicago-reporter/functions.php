@@ -16,6 +16,7 @@ define( 'INN_MEMBER', TRUE );
  */
 function largo_child_require_files() {
 	$includes = array(
+		'/inc/metaboxes.php',
 		'/inc/landing-archive-shortcode.php',
 		'/inc/series-landing.php',
 		'/inc/taxonomies.php',
@@ -37,7 +38,7 @@ function largo_child_require_files() {
 		require_once( get_stylesheet_directory() . $include );
 	}
 }
-add_action( 'after_setup_theme', 'largo_child_require_files' );
+add_action( 'after_setup_theme', 'largo_child_require_files', 11 );
 
 // Add OpenSans to the enqued fonts
 if( !function_exists( 'cr_scripts') ) {
