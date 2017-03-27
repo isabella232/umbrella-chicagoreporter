@@ -13,6 +13,12 @@ add_filter( 'body_class', function( $classes ) {
 	return $classes;
 } );
 
+// set us up a span4 three-column grid
+add_filter( 'post_class', function( $classes ) {
+	$classes[] = 'span4';
+	return $classes;
+} );
+
 get_header();
 
 // Load up our meta data and whatnot
@@ -79,6 +85,7 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 
 
 <div id="content" class="span12 stories" role="main">
+	<div class="row">
 <?php
 
 global $wp_query, $post;
@@ -140,7 +147,7 @@ if ( isset( $wp_query->query_vars['term'] )
 		'posts_term' => ($posts_term)? $posts_term : 'Posts'
 	));
 } ?>
-
+	</div><!-- /.row inner div -->
 </div><!-- /.grid_8 #content -->
 
 <?php // display left rail

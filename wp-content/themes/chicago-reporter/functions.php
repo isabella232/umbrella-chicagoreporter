@@ -59,7 +59,10 @@ function cr_styles_less() {
 
 	// if the post template uses the photo header, include those styles 
 	global $template;
-	if ( basename( $template ) === 'single-photo-header.php' ) {
+	if ( 
+		basename( $template ) === 'single-photo-header.php' ||
+		basename( $template ) === 'series-landing-photo-header.php'
+	) {
 		wp_enqueue_style( 'chicagoreporter-photo-header', get_stylesheet_directory_uri().'/css/photo-header' . $suffix . '.css' );
 	}
 }
