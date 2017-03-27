@@ -13,12 +13,6 @@ add_filter( 'body_class', function( $classes ) {
 	return $classes;
 } );
 
-// set us up a span4 three-column grid
-add_filter( 'post_class', function( $classes ) {
-	$classes[] = 'span4';
-	return $classes;
-} );
-
 get_header();
 
 // Load up our meta data and whatnot
