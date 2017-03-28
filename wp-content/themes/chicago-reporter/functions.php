@@ -16,6 +16,7 @@ define( 'INN_MEMBER', TRUE );
  */
 function largo_child_require_files() {
 	$includes = array(
+		'/inc/DDCPC.php',
 		'/inc/metaboxes.php',
 		'/inc/landing-archive-shortcode.php',
 		'/inc/series-landing.php',
