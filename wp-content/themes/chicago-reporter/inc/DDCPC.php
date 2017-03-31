@@ -36,4 +36,4 @@ function cr_ddcpc_options( $options ) {
 	));
 	return $options;
 }
-add_action( 'developer_driven_custom_post_classes_options', 'cr_ddcpc_options' );
+add_filter( 'developer_driven_custom_post_classes_options', 'cr_ddcpc_options' );
