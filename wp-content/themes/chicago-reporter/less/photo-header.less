@@ -9,26 +9,34 @@
 @import "_variables.less";
 
 header.photo-header-background {
-  padding: 15em 0;
-  padding-left: 15%;
+  padding: 10em 0;
+  padding-left: 10%;
   margin-bottom: 5em;
-  margin-left: -400px;
-  margin-right: -400px;
-  background-size: cover;
   background: no-repeat center center local;
+  background-size: cover;
 
   h1.entry-title,
-  h5.top-tag {
+  h5.top-tag,
+  h2.subtitle {
     color: white;
     max-width: 500px;
+    text-shadow: 1px 1px 8px #000000;
   }
   h5.top-tag {
     border-top: 5px solid @red;
     padding-top: 20px;
+    font-family: @title;
+    font-weight: 400;
+    font-size: 20px;
   }
 
   h5.top-tag a {
     color: white;
+  }
+
+  h2.subtitle {
+  	font-family: @sans;
+  	font-weight: 300;
   }
 
 
@@ -44,6 +52,12 @@ section.entry-content.clearfix {
   margin: 0 auto;
 }
 
+.entry-content p {
+	font-size: 18px;
+	line-height: 1.8;
+	margin: 0 0 32px;
+}
+
 .entry-content blockquote {
   float: right;
   border-top: 5px solid @red;
@@ -53,6 +67,7 @@ section.entry-content.clearfix {
     font-family: @title;
     font-weight: bold;
     font-size: 32px;
+    line-height: 1.5;
   }
 }
 
