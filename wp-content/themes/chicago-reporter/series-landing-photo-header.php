@@ -65,6 +65,16 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 			<div class="description">
 				<?php echo apply_filters( 'the_content', $post->post_excerpt ); ?>
 			</div>
+		</section>
+	</header>
+	<div id="series-main" class="row-fluid clearfix">
+<?php endif; ?>
+
+
+<div id="content" class="span12 stories" role="main">
+	<div class="row">
+		<section class="span12 entry-content">
+
 			<?php
 			if ( 'standard' == $opt['header_style'] ) {
 				//need to set a size, make this responsive, etc
@@ -73,12 +83,7 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 			}
 			?>
 		</section>
-	</header>
-	<div id="series-main" class="row-fluid clearfix">
-<?php endif; ?>
-
-
-<div id="content" class="span12 stories" role="main">
+	</div>
 	<div class="row">
 <?php
 
