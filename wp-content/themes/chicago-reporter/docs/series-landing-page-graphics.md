@@ -37,6 +37,8 @@ For an example embedded graphic in a landing page, paste the following content i
 
 The `<h5 class="byline">` element was copied from a post by that author, by right-clicking on the byline of the author on the post and choosing "Inspect Element" or similar. The following screenshot uses Chrome, but you can use other browsers' web inspection tools to find the `<h5 class="byline">`. Right-click on that element, and then choose Copy > Copy outerHTML. Some browsers may require you to choose "Edit as HTML" and then copy, or may allow you to press Control-C or Command-C to copy the element.
 
+**Note:** The HTML in the above example has been formatted to allow you to read it easily. When pasting the HTML into the post editor, you may need to remove tabs, spaces, and newlines to prevent the byline from being broken across different lines.
+
 ![a screenshot showing how to use a mouse to copy the outerHTML of an element in the document tree, as described in the preceding paragraph.](./img/copy-the-byline.png)
 
 Then, go to the "Custom HTML" editor and paste.
