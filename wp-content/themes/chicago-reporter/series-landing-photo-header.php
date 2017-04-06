@@ -67,7 +67,6 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 			</div>
 		</section>
 	</header>
-	<div id="series-main" class="row-fluid clearfix">
 <?php endif; ?>
 
 
@@ -88,6 +87,10 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 		</div>
 	<?php }
 ?>
+
+
+<div id="series-main" class="row-fluid clearfix">
+
 <?php
 
 global $wp_query, $post;
