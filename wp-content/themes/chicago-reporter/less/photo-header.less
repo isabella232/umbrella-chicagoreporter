@@ -35,8 +35,8 @@ header.photo-header-background {
   }
 
   h2.subtitle {
-  	font-family: @sans;
-  	font-weight: 300;
+    font-family: @sans;
+    font-weight: 300;
   }
 
 
@@ -53,9 +53,9 @@ section.entry-content.clearfix {
 }
 
 .entry-content p {
-	font-size: 18px;
-	line-height: 1.8;
-	margin: 0 0 32px;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0 0 32px;
 }
 
 .entry-content blockquote {
@@ -68,6 +68,19 @@ section.entry-content.clearfix {
     font-weight: bold;
     font-size: 32px;
     line-height: 1.5;
+  }
+}
+
+// Copy the widths that we apply to .entry-content in single posts/pages and apply them to these elements so that there is a similar visual appearance.
+.photo-header #header-html {
+  h5, p {
+    padding: 0 17.021276594%;
+    @media @tabletDown {
+      padding: 0 @fluidGridColumnWidth;
+    }
+    @media @mobile {
+      padding: 0;
+    }
   }
 }
 

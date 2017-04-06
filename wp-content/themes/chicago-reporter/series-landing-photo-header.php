@@ -71,20 +71,23 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 <?php endif; ?>
 
 
-<div id="content" class="span12 stories" role="main">
-	<div class="row">
-		<section class="span12 entry-content">
-
-			<?php
-			if ( 'standard' == $opt['header_style'] ) {
-				//need to set a size, make this responsive, etc
-			} else {
-				the_content();
-			}
-			?>
-		</section>
-	</div>
-	<div class="row">
+<?php
+	/**
+	 * The header HTML field, labeled "Custom HTML" in the series landing page editor.
+	 * If it doesn't exist, remove it.
+	 */
+	if ( 'standard' == $opt['header_style'] ) {
+		//need to set a size, make this responsive, etc
+	} else { ?>
+		<div id="header-html" class="span12 stories" role="main">
+			<div class="row">
+				<section class="span12 entry-content">
+					<?php the_content(); ?>
+				</section>
+			</div>
+		<div class="row">
+	<?php }
+?>
 <?php
 
 global $wp_query, $post;
