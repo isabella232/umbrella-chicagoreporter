@@ -85,7 +85,7 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 					<?php the_content(); ?>
 				</section>
 			</div>
-		<div class="row">
+		</div>
 	<?php }
 ?>
 <?php
