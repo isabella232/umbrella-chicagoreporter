@@ -172,6 +172,17 @@ class Beats_Menu_Walker extends Walker_Nav_Menu {
 
 		// Passed classes.
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+
+		// get the featured media image for the category
+		if ( isset ( $item->object ) && $item->object === 'category' ) {
+			$post_id = largo_get_term_meta_post( $item->object, $item->object_id );
+			$image = get_the_post_thumbnail( $post_id, 'medium' );
+
+			if ( ! empty( $image ) ) {
+				$classes[] = 'has-image';
+			}
+		}
+
 		$class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
 
 		// Build HTML.
@@ -188,7 +199,7 @@ class Beats_Menu_Walker extends Walker_Nav_Menu {
 		$item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
 			$args->before,
 			$attributes,
-			$args->link_before,
+			$args->link_before . $image,
 			apply_filters( 'the_title', $item->title, $item->ID ),
 			$args->link_after,
 			$args->after
