@@ -26,7 +26,8 @@ function largo_child_require_files() {
 		'/inc/post-tags.php',
 		'/inc/photo-header-template.php',
 		'/inc/widgets/cr-magazine-widget.php',
-		'/homepages/layouts/ChicagoReporter.php'
+		'/homepages/layouts/ChicagoReporter.php',
+		'/homepages/layouts/ChicagoReporterComplex.php'
 	);
 
 	if ( class_exists( 'WP_CLI_Command' ) ) {

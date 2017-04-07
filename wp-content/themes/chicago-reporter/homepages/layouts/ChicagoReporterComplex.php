@@ -13,10 +13,10 @@ class ChicagoReporterComplex extends Homepage {
 
 		// this is the configuration for this homepage
 		$defaults = array(
-			'name' => __( 'Chicago Reporter', 'cr' ),
+			'name' => __( 'Chicago Reporter, Complex', 'cr' ),
 			'type' => 'chicagoreporter-complex',
-			'description' => __( 'A complex multi-zone layout with a top story, two featured stories, and multiple widget areas.', 'cr' );
-			'template' => get_tylesheet_directory() . '/homepages/templates/chicagoreporter-complex.php',
+			'description' => __( 'A complex multi-zone layout with a top story, two featured stories, and multiple widget areas.', 'cr' ),
+			'template' => get_stylesheet_directory() . '/homepages/templates/chicagoreporter-complex.php',
 			'assets' => array(
 				array(
 					'sr-complex-homepage',
@@ -24,7 +24,7 @@ class ChicagoReporterComplex extends Homepage {
 					array()
 				),
 			),
-			'prominenceTerms' = array(
+			'prominenceTerms' => array(
 				array(
 					'name' => __( 'Homepage Top Story', 'largo' ),
 					'description' => __( 'If you are using a "Big story" homepage layout, add this label to a post to make it the top story on the homepage', 'largo' ),
@@ -38,11 +38,162 @@ class ChicagoReporterComplex extends Homepage {
 			),
 		);
 		$options = array_merge($defaults, $options);
-		$this->init($options);
-		$this->load($options);
+		$this->init( $options );
+		$this->load( $options );
 	}
 
-	public function init( $options = aray() ) {
-		
+	/**
+	 * This gets called by the HomepageLayoutFactory class
+	 */
+	public function register() {
+		$this->registerSidebars();
+		$this->register_menu();
+		$this->setRightRail();
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueueAssets' ), 100 );
+	}
+
+	/**
+	 * Register the menu used for the Beats output
+	 */
+	public function register_menu() {
+		register_nav_menu(
+			'beats_menu',
+			__( 'Homepage Beats Menu', 'cr' )
+		);
+	}
+
+	/**
+	 * register our sidebars
+	 */
+	public function registerSidebars() {
+		$sidebars = array(
+			array(
+				'name' => 'Homepage Top Sidebar',
+				'id' => 'homepage-top-sidebar',
+				'description' => __('You should put one Recent Posts widget here.', 'rns'),
+				'before_widget' => '',
+				'after_widget' => '',
+				'before_title' => '<h3 class="bar-above">',
+				'after_title' => '</h3>',
+			),
+			array(
+				'name' => 'Homepage Middle Image',
+				'id' => 'homepage-middle-image',
+				'description' => __('You should put one Image widget here.', 'rns'),
+				'before_widget' => '',
+				'after_widget' => '',
+				'before_title' => '<h3 class="bar-above">',
+				'after_title' => '</h3>',
+			)
+		);
+		foreach ($sidebars as $sidebar) {
+			register_sidebar($sidebar);
+		}
+	}
+
+	/**
+	 * Display the Beats menu
+	 */
+	public function beatsMenu() {
+		return wp_nav_menu( array(
+			'menu' => 'meats_menu',
+			'menu_id' => 'beats_menu',
+			'fallback_cb' => false,
+			'echo' => false,
+			'depth' => 1,
+			'theme_location' => 'beats_menu',
+			'items_wrap' => '%3$s',
+			'walker' => new Beats_Menu_Walker,
+		) );
+	}
+
+	function topStory() {
+		$bigStoryPost = largo_home_single_top();
+		ob_start();
+		?>
+			<article>
+				<?php largo_maybe_top_term( array( 'post'=> $bigStoryPost->ID ) ); ?>
+				<h2><a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo $bigStoryPost->post_title; ?></a></h2>
+				<h5 class="byline"><?php largo_byline(true, true, $bigStoryPost); ?></h5>
+				<section>
+					<?php if (empty($moreLink)) {
+							largo_excerpt($bigStoryPost, 2 );
+						} else {
+							largo_excerpt($bigStoryPost, 2, null, null, true, false);
+						} ?>
+				</section>
+			</article>
+		<?php
+		wp_reset_postdata();
+		$ret = ob_get_contents();
+		ob_end_clean();
+		return $ret;
+	}
+}
+
+/**
+ * Register this layout
+ */
+function cr_complex_homepage_layout() {
+	register_homepage_layout( 'ChicagoReporterComplex' );
+}
+add_action( 'init', 'cr_complex_homepage_layout' );
+
+/**
+ * Custom nav walker class so we can put term featured media on the links
+ *
+ * @link https://developer.wordpress.org/reference/functions/wp_nav_menu/#comment-207
+ * @since WordPress 4.7.3
+ */
+class Beats_Menu_Walker extends Walker_Nav_Menu {
+	/**
+	 * Start the element output.
+	 *
+	 * Adds main/sub-classes to the list items and links.
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param object $item   Menu item data object.
+	 * @param int	$depth  Depth of menu item. Used for padding.
+	 * @param array  $args   An array of arguments. @see wp_nav_menu()
+	 * @param int	$id	 Current item ID.
+	 */
+	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+		global $wp_query;
+		$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
+
+		// Depth-dependent classes.
+		$depth_classes = array(
+			( $depth == 0 ? 'main-menu-item' : 'sub-menu-item' ),
+			( $depth >=2 ? 'sub-sub-menu-item' : '' ),
+			( $depth % 2 ? 'menu-item-odd' : 'menu-item-even' ),
+			'menu-item-depth-' . $depth
+		);
+		$depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
+
+		// Passed classes.
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+
+		// Build HTML.
+		$output .= $indent . '<div id="nav-menu-item-'. $item->ID . '" class="span3 ' . $depth_class_names . ' ' . $class_names . '">';
+
+		// Link attributes.
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+		$attributes .= ! empty( $item->target )	 ? ' target="' . esc_attr( $item->target	 ) .'"' : '';
+		$attributes .= ! empty( $item->xfn )		? ' rel="'	. esc_attr( $item->xfn		) .'"' : '';
+		$attributes .= ! empty( $item->url )		? ' href="'   . esc_attr( $item->url		) .'"' : '';
+		$attributes .= ' class="menu-link ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
+
+		// Build HTML output and pass through the proper filter.
+		$item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
+			$args->before,
+			$attributes,
+			$args->link_before,
+			apply_filters( 'the_title', $item->title, $item->ID ),
+			$args->link_after,
+			$args->after
+		);
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		$output .= '</div>';
 	}
 }
