@@ -115,13 +115,6 @@ class ChicagoReporterComplex extends Homepage {
 				<?php largo_maybe_top_term( array( 'post'=> $bigStoryPost->ID ) ); ?>
 				<h2><a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo $bigStoryPost->post_title; ?></a></h2>
 				<h5 class="byline"><?php largo_byline(true, true, $bigStoryPost); ?></h5>
-				<section>
-					<?php if (empty($moreLink)) {
-							largo_excerpt($bigStoryPost, 2 );
-						} else {
-							largo_excerpt($bigStoryPost, 2, null, null, true, false);
-						} ?>
-				</section>
 			</article>
 		<?php
 		wp_reset_postdata();
@@ -129,6 +122,34 @@ class ChicagoReporterComplex extends Homepage {
 		ob_end_clean();
 		return $ret;
 	}
+
+	/**
+	 * This needs to output two div.span4s
+	 */
+	function featStories() {
+		$featured_stories = largo_home_featured_stories( 2 );
+		ob_start();
+		foreach ( $featured_stories as $featured ) {
+
+		?>
+			<article class="span4">
+				<?php largo_maybe_top_term( array( 'post'=> $featured->ID ) ); ?>
+				<h3><a href="<?php echo get_permalink($featured->ID); ?>"><?php echo $featured->post_title; ?></a></h3>
+				<h5 class="byline"><?php largo_byline(true, true, $featured); ?></h5>
+				<section>
+						<?php
+							largo_excerpt($featured, 2, null, null, true, false);
+						?>
+				</section>
+			</article>
+		<?php
+		}
+		wp_reset_postdata();
+		$ret = ob_get_contents();
+		ob_end_clean();
+		return $ret;
+	}
+
 }
 
 /**

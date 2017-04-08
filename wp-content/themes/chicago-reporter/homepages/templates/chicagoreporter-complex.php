@@ -7,7 +7,7 @@
 
 global $largo, $shown_ids, $tags;
 ?>
-<div class="row">
+<div class="row clearfix">
 	<div class="span8">
 		<?php echo $topStory; ?>
 	</div>
@@ -17,108 +17,21 @@ global $largo, $shown_ids, $tags;
 		<?php } ?>
 	</div>
 </div>
-<div class="row">
-	<div class="span4">
-		<?php echo $featStory; ?>
-	</div>
-	<div class="span4">
-		<?php echo $featStory; ?>
-	</div>
+<div class="row clearfix">
+	<?php echo $featStories; ?>
 	<div class="span4">
 		<?php if ( !dynamic_sidebar( 'Homepage Middle Image' ) ) { ?>
 			<p><?php _e('Please add widgets to this content area in the WordPress admin area under Appearance > Widgets.', 'largo'); ?></p>
 		<?php } ?>
 	</div>
 </div>
-<div class="row">
+<div class="row clearfix">
 	<div class="span12">
 		<?php echo $beatsMenu; ?>
 	</div>
 </div>
-<div class="row">
-	<div class="span10">
+<div class="row clearfix">
+	<div class="span8">
 	</div>
-	<div class="span2">
-	</div>
-</div>
-
-
-
-<div id="homepage-featured" class="row-fluid clearfix">
-	<?php if ( is_active_sidebar('homepage-left-rail') ) { ?>
-	<div class="top-story span12">
-	<?php } else { ?>
-	<div class="top-story span12">
-	<?php }
-		$topstory = largo_get_featured_posts( array(
-			'tax_query' => array(
-				array(
-					'taxonomy' 	=> 'prominence',
-					'field' 	=> 'slug',
-					'terms' 	=> 'top-story'
-				)
-			),
-			'showposts' => 1
-		) );
-		if ( $topstory->have_posts() ) :
-			while ( $topstory->have_posts() ) : $topstory->the_post(); $shown_ids[] = get_the_ID();
-
-				$featured_media = largo_get_featured_media( get_the_ID() );
-				if (in_array($featured_media['type'], array('embed-code', 'video'))) { ?>
-					<div class="embed-container">
-						<?php echo $featured_media['embed']; ?>
-					</div>
-				<?php } else { ?>
-					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'large' ); ?></a>
-				<?php } ?>
-
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-			    <h5 class="byline"><?php largo_byline(); ?></h5>
-			    <?php largo_excerpt( get_the_ID(), 4, false );
-			endwhile;
-		endif; // end top story ?>
-	</div>
-
-	<?php if ( !is_active_sidebar('homepage-left-rail') ) { ?>
-	<div class="sub-stories stories">
-		<?php $substories = largo_get_featured_posts( array(
-			'tax_query' => array(
-				array(
-					'taxonomy' 	=> 'prominence',
-					'field' 	=> 'slug',
-					'terms' 	=> 'homepage-featured'
-				)
-			),
-			'showposts'		=> 6,
-			'post__not_in' 	=> $shown_ids
-		) );
-		if ( $substories->have_posts() ) :
-			$count = 1;
-
-			while ( $substories->have_posts() ) : $substories->the_post(); $shown_ids[] = get_the_ID();
-				?>
-					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
-						<div class="entry-content">
-						<?php
-							largo_maybe_top_term( $args = array( 'echo' => FALSE ) );
-						?>
-							<?php echo '<a href="' . get_permalink() . '">' . get_the_post_thumbnail( get_the_ID(), 'list-thumbnail', array('class'=>'attachment-post-thumbnail') ) . '</a>'; ?>
-							<h2 class="entry-title">
-								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => __( 'Permalink to', 'largo' ) . ' ' ) )?>" rel="bookmark"><?php the_title(); ?></a>
-							</h2>
-
-							<h5 class="byline"><?php largo_byline(); ?></h5>
-
-							<?php largo_excerpt( get_the_ID(), 5, true, __('Continue&nbsp;Reading', 'largo'), true, false ); ?>
-
-							<?php if ( !is_home() && largo_has_categories_or_tags() && $tags === 'btm' ) { ?>
-								<h5 class="tag-list"><strong><?php _e('More about:', 'largo'); ?></strong> <?php largo_categories_and_tags( 8 ); ?></h5>
-							<?php } ?>
-						</div>
-					</article>
-				<?php
-			endwhile;
-		endif; // end more featured posts ?>
-	</div>
-	<?php } ?>
+	<?php get_sidebar(); ?>
 </div>
