@@ -31,7 +31,9 @@ global $largo, $shown_ids, $tags;
 	</div>
 </div>
 <div class="row clearfix">
-	<div class="span8">
+	<div class="span8" id="investigations">
+		<h3 class="bar-above">Investigations</h3>
+		<?php get_template_part( 'partials/home-post-list' ); ?>
 	</div>
 	<?php get_sidebar(); ?>
 </div>

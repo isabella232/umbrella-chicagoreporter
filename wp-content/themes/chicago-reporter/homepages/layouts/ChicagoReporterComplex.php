@@ -149,7 +149,6 @@ class ChicagoReporterComplex extends Homepage {
 		ob_end_clean();
 		return $ret;
 	}
-
 }
 
 /**
