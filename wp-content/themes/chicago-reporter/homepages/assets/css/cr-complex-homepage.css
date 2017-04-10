@@ -1,4 +1,50 @@
 /**
  * Homepage styles for the "ChicagooReporterComplex" homepage class
  */
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZXNDb250ZW50IjpbXX0= */
+/**
+ * 1.1 - Variables
+ * =======================
+ * 1.1.1 - Colors
+ * 1.1.2 - Fonts
+ */
+/**
+  * 1.1.1 Colors - Global and Brand
+  * -----------------------
+  */
+/* Default Variable Names
+ * @red, @orange, @yellow
+ * @green, @blue, @purple
+ * @brown, @gray, @black
+ *
+ * @link
+ * @link_hover
+ * @brand_primary (only use if different from default color already in use)
+ * @brand_secondary (only use if different from default color already in use)
+ *
+ * VARIATIONS
+ * @*_light, @*_dark, @*_transparent
+----------------------------- */
+/**
+ * 1.1.2 - Font Definitions
+ * -----------------------
+ */
+/* @title
+ * Typeface Name
+ * Used on headlines throughout site
+ */
+/* @serif
+ * Typeface Name
+ * For body and other general applications
+ */
+/* @sans
+ * Typeface Name
+ * For labels, bylines, photo credits, etc
+ */
+.bar-above::before {
+  display: block;
+  clear: both;
+  height: 0.3em;
+  width: 3em;
+  background-color: #cc3300;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWVwYWdlcy9hc3NldHMvbGVzcy9jci1jb21wbGV4LWhvbWVwYWdlLmxlc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBSUEsVUFBVTtFQUNSLGNBQUE7RUFDQSxXQUFBO0VBQ0EsYUFBQTtFQUNBLFVBQUE7RUFDQSx5QkFBQSIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogSG9tZXBhZ2Ugc3R5bGVzIGZvciB0aGUgXCJDaGljYWdvb1JlcG9ydGVyQ29tcGxleFwiIGhvbWVwYWdlIGNsYXNzXG4gKi9cbkBpbXBvcnQgXCJfdmFyaWFibGVzLmxlc3NcIjtcbi5iYXItYWJvdmU6OmJlZm9yZXtcbiAgZGlzcGxheTogYmxvY2s7XG4gIGNsZWFyOiBib3RoO1xuICBoZWlnaHQ6IDAuM2VtO1xuICB3aWR0aDogM2VtO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBAcmVkO1xufVxuIl19 */
