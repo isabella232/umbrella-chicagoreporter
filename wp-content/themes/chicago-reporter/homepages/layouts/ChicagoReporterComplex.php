@@ -111,8 +111,9 @@ class ChicagoReporterComplex extends Homepage {
 		$bigStoryPost = largo_home_single_top();
 		ob_start();
 		?>
-			<article>
+			<article class="top-story">
 				<?php largo_maybe_top_term( array( 'post'=> $bigStoryPost->ID ) ); ?>
+				<a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo get_the_post_thumbnail( $bigStoryPost->ID, 'medium' ); ?></a>
 				<h2><a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo $bigStoryPost->post_title; ?></a></h2>
 				<h5 class="byline"><?php largo_byline(true, true, $bigStoryPost); ?></h5>
 			</article>
@@ -132,7 +133,8 @@ class ChicagoReporterComplex extends Homepage {
 		foreach ( $featured_stories as $featured ) {
 
 		?>
-			<article class="span4">
+			<article class="span4 sub-stories">
+				<a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo get_the_post_thumbnail( $bigStoryPost->ID, 'medium' ); ?></a>
 				<?php largo_maybe_top_term( array( 'post'=> $featured->ID ) ); ?>
 				<h3><a href="<?php echo get_permalink($featured->ID); ?>"><?php echo $featured->post_title; ?></a></h3>
 				<h5 class="byline"><?php largo_byline(true, true, $featured); ?></h5>

@@ -8,7 +8,7 @@
 global $largo, $shown_ids, $tags;
 ?>
 <div class="row clearfix">
-	<div class="span8">
+	<div class="span8" id="homepage-featured">
 		<?php echo $topStory; ?>
 	</div>
 	<div class="span4">
