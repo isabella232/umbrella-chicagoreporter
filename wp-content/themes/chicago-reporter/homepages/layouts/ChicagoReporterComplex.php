@@ -6,6 +6,11 @@
  */
 include_once get_template_directory() . '/homepages/homepage-class.php';
 
+/**
+ * This is called the "Complex" layout as opposed to the other layout, which is simple
+ *
+ * @since Largo 0.5.5.3
+ */
 class ChicagoReporterComplex extends Homepage {
 	function __construct( $options = array() ) {
 		// for css minification purposes
@@ -44,6 +49,12 @@ class ChicagoReporterComplex extends Homepage {
 
 	/**
 	 * This gets called by the HomepageLayoutFactory class
+	 * That's why you don't see it getting called here.
+	 *
+	 * @uses ChicagoReporterComplex::registerSidebars
+	 * @uses ChicagoReporterComplex::register_menu
+	 * @uses ChicagoReporterComplex::setRightRail
+	 * @see ChicagoReporterComplex::enqueueAssets
 	 */
 	public function register() {
 		$this->registerSidebars();
@@ -63,7 +74,7 @@ class ChicagoReporterComplex extends Homepage {
 	}
 
 	/**
-	 * register our sidebars
+	 * register our sidebars, with some homepage-specific before_title markup
 	 */
 	public function registerSidebars() {
 		$sidebars = array(
@@ -93,6 +104,8 @@ class ChicagoReporterComplex extends Homepage {
 
 	/**
 	 * Display the Beats menu
+	 *
+	 * This is the row of (hopefully) four items in the middle of the homepage
 	 */
 	public function beatsMenu() {
 		return wp_nav_menu( array(
@@ -109,6 +122,11 @@ class ChicagoReporterComplex extends Homepage {
 		) );
 	}
 
+	/**
+	 * This zone outputs the top story on the homepage
+	 *
+	 * @return String HTML content
+	 */
 	function topStory() {
 		$bigStoryPost = largo_home_single_top();
 		global $shown_ids;
@@ -135,6 +153,8 @@ class ChicagoReporterComplex extends Homepage {
 
 	/**
 	 * This needs to output two div.span4s
+	 *
+	 * @return String HTML content
 	 */
 	function featStories() {
 		$featured_stories = largo_home_featured_stories( 2 );
@@ -167,6 +187,7 @@ class ChicagoReporterComplex extends Homepage {
 
 /**
  * Register this layout
+ * @since Largo 0.5.5.3
  */
 function cr_complex_homepage_layout() {
 	register_homepage_layout( 'ChicagoReporterComplex' );
@@ -233,6 +254,7 @@ class Beats_Menu_Walker extends Walker_Nav_Menu {
 		$item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
 			$args->before,
 			$attributes,
+			// the image comes before link_before, so here we alter the effective link_before parameter
 			$image . $args->link_before,
 			apply_filters( 'the_title', $item->title, $item->ID ),
 			$args->link_after,
