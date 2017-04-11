@@ -11,7 +11,7 @@ global $largo, $shown_ids, $tags;
 	<div class="span8" id="homepage-featured">
 		<?php echo $topStory; ?>
 	</div>
-	<div class="span4">
+	<div class="span4" id="homepage-top-sidebar">
 		<?php if ( !dynamic_sidebar( 'Homepage Top Sidebar' ) ) { ?>
 			<p><?php _e('Please add widgets to this content area in the WordPress admin area under Appearance > Widgets.', 'largo'); ?></p>
 		<?php } ?>
@@ -19,14 +19,14 @@ global $largo, $shown_ids, $tags;
 </div>
 <div class="row clearfix">
 	<?php echo $featStories; ?>
-	<div class="span4">
+	<div class="span4" id="homepage-middle-image">
 		<?php if ( !dynamic_sidebar( 'Homepage Middle Image' ) ) { ?>
 			<p><?php _e('Please add widgets to this content area in the WordPress admin area under Appearance > Widgets.', 'largo'); ?></p>
 		<?php } ?>
 	</div>
 </div>
 <div class="row clearfix">
-	<div class="span12">
+	<div class="span12" id="beats_menu">
 		<?php echo $beatsMenu; ?>
 	</div>
 </div>

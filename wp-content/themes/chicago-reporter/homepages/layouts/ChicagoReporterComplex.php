@@ -19,8 +19,8 @@ class ChicagoReporterComplex extends Homepage {
 			'template' => get_stylesheet_directory() . '/homepages/templates/chicagoreporter-complex.php',
 			'assets' => array(
 				array(
-					'sr-complex-homepage',
-					get_stylesheet_directory_uri() . '/homepages/assets/css/' . $suffix . '.css',
+					'cr-complex-homepage',
+					get_stylesheet_directory_uri() . '/homepages/assets/css/cr-complex-homepage' . $suffix . '.css',
 					array()
 				),
 			),
@@ -71,8 +71,8 @@ class ChicagoReporterComplex extends Homepage {
 				'name' => 'Homepage Top Sidebar',
 				'id' => 'homepage-top-sidebar',
 				'description' => __('You should put one Recent Posts widget here.', 'rns'),
-				'before_widget' => '',
-				'after_widget' => '',
+				'before_widget' => '<aside id="%1$s" class="%2$s clearfix">',
+				'after_widget' => '</aside>',
 				'before_title' => '<h3 class="bar-above">',
 				'after_title' => '</h3>',
 			),
@@ -80,8 +80,8 @@ class ChicagoReporterComplex extends Homepage {
 				'name' => 'Homepage Middle Image',
 				'id' => 'homepage-middle-image',
 				'description' => __('You should put one Image widget here.', 'rns'),
-				'before_widget' => '',
-				'after_widget' => '',
+				'before_widget' => '<aside id="%1$s" class="%2$s clearfix">',
+				'after_widget' => '</aside>',
 				'before_title' => '<h3 class="bar-above">',
 				'after_title' => '</h3>',
 			)
@@ -104,6 +104,8 @@ class ChicagoReporterComplex extends Homepage {
 			'theme_location' => 'beats_menu',
 			'items_wrap' => '%3$s',
 			'walker' => new Beats_Menu_Walker,
+			'link_before' => '<span>',
+			'link_after' => '</span>',
 		) );
 	}
 
@@ -112,10 +114,12 @@ class ChicagoReporterComplex extends Homepage {
 		ob_start();
 		?>
 			<article class="top-story">
-				<?php largo_maybe_top_term( array( 'post'=> $bigStoryPost->ID ) ); ?>
-				<a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo get_the_post_thumbnail( $bigStoryPost->ID, 'medium' ); ?></a>
+				<div class="is-image">
+					<a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo get_the_post_thumbnail( $bigStoryPost->ID, 'large' ); ?></a>
+				</div>
 				<h2><a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo $bigStoryPost->post_title; ?></a></h2>
-				<h5 class="byline"><?php largo_byline(true, true, $bigStoryPost); ?></h5>
+					<!-- the byline class here isn't showing the byline? -->
+				<h5 class="byline"><?php largo_byline(true, false, $bigStoryPost); ?></h5>
 			</article>
 		<?php
 		wp_reset_postdata();
@@ -133,17 +137,17 @@ class ChicagoReporterComplex extends Homepage {
 		foreach ( $featured_stories as $featured ) {
 
 		?>
-			<article class="span4 sub-stories">
-				<a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo get_the_post_thumbnail( $bigStoryPost->ID, 'medium' ); ?></a>
-				<?php largo_maybe_top_term( array( 'post'=> $featured->ID ) ); ?>
-				<h3><a href="<?php echo get_permalink($featured->ID); ?>"><?php echo $featured->post_title; ?></a></h3>
-				<h5 class="byline"><?php largo_byline(true, true, $featured); ?></h5>
-				<section>
-						<?php
-							largo_excerpt($featured, 2, null, null, true, false);
-						?>
-				</section>
-			</article>
+			<div class="span4 sub-stories">
+				<article <?php post_class( $bigStoryPost->ID ); ?> ?>
+					<a href="<?php echo get_permalink( $bigStoryPost->ID ); ?>"><?php echo get_the_post_thumbnail( $bigStoryPost->ID, 'large' ); ?></a>
+					<?php largo_maybe_top_term( array( 'post'=> $featured->ID ) ); ?>
+					<h3><a href="<?php echo get_permalink( $featured->ID ); ?>"><?php echo $featured->post_title; ?></a></h3>
+					<h5 class="byline"><?php largo_byline( true, true, $featured ); ?></h5>
+					<?php
+						largo_excerpt( $featured, 2, null, null, true, false );
+					?>
+				</article>
+			</div>
 		<?php
 		}
 		wp_reset_postdata();
@@ -221,7 +225,7 @@ class Beats_Menu_Walker extends Walker_Nav_Menu {
 		$item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
 			$args->before,
 			$attributes,
-			$args->link_before . $image,
+			$image . $args->link_before,
 			apply_filters( 'the_title', $item->title, $item->ID ),
 			$args->link_after,
 			$args->after
