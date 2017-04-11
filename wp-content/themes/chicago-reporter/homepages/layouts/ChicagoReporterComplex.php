@@ -111,6 +111,9 @@ class ChicagoReporterComplex extends Homepage {
 
 	function topStory() {
 		$bigStoryPost = largo_home_single_top();
+		global $shown_ids;
+		$shown_ids[] = $bigStoryPost->ID;
+
 		ob_start();
 		?>
 			<article class="top-story">
@@ -135,13 +138,16 @@ class ChicagoReporterComplex extends Homepage {
 	 */
 	function featStories() {
 		$featured_stories = largo_home_featured_stories( 2 );
+		global $shown_ids;
+
 		ob_start();
 		foreach ( $featured_stories as $featured ) {
+			$shown_ids[] = $featured->ID;
 
 		?>
 			<div class="span4 sub-stories">
-				<article <?php post_class( $bigStoryPost->ID ); ?> ?>
-					<a href="<?php echo get_permalink( $bigStoryPost->ID ); ?>"><?php echo get_the_post_thumbnail( $bigStoryPost->ID, 'large' ); ?></a>
+				<article <?php post_class( $featured->ID ); ?> ?>
+					<a href="<?php echo get_permalink( $featured->ID ); ?>"><?php echo get_the_post_thumbnail( $featured->ID, 'large' ); ?></a>
 					<?php largo_maybe_top_term( array( 'post'=> $featured->ID ) ); ?>
 					<h3><a href="<?php echo get_permalink( $featured->ID ); ?>"><?php echo $featured->post_title; ?></a></h3>
 					<h5 class="byline"><?php largo_byline( true, true, $featured ); ?></h5>
