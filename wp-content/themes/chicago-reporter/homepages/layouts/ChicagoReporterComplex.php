@@ -117,9 +117,11 @@ class ChicagoReporterComplex extends Homepage {
 				<div class="is-image">
 					<a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo get_the_post_thumbnail( $bigStoryPost->ID, 'large' ); ?></a>
 				</div>
-				<h2><a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo $bigStoryPost->post_title; ?></a></h2>
-					<!-- the byline class here isn't showing the byline? -->
-				<h5 class="byline"><?php largo_byline(true, false, $bigStoryPost); ?></h5>
+				<div class="text">
+					<h2><a href="<?php echo get_permalink($bigStoryPost->ID); ?>"><?php echo $bigStoryPost->post_title; ?></a></h2>
+						<!-- the byline class here isn't showing the byline? -->
+					<h5 class="byline"><?php largo_byline(true, false, $bigStoryPost); ?></h5>
+				</div>
 			</article>
 		<?php
 		wp_reset_postdata();
