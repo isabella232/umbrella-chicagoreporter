@@ -77,6 +77,11 @@ section.entry-content.clearfix {
   }
 }
 
+.left, .right {
+  float: none;
+  margin: inherit;
+}
+
 .dark { 
   header.photo-header-background {
     h5.top-tag a, 
@@ -104,9 +109,14 @@ section.entry-content.clearfix {
   }
 }
 
-.left {
-  float: none;
-  margin: inherit;
+.right { 
+  header.photo-header-background {
+    h5.top-tag, 
+    h1.entry-title, 
+    h2.subtitle  {
+      margin-left: 50%;
+    }
+  }
 }
 
 
