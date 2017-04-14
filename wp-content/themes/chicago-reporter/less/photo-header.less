@@ -77,18 +77,19 @@ section.entry-content.clearfix {
   }
 }
 
+//Styles for Photo Header Plugin
+
 .left, .right {
   float: none;
   margin: inherit;
 }
 
-.dark { 
+.right { 
   header.photo-header-background {
-    h5.top-tag a, 
+    h5.top-tag, 
     h1.entry-title, 
     h2.subtitle  {
-      color: black;
-      text-shadow: none;
+      margin-left: 50%;
     }
   }
 }
@@ -109,16 +110,23 @@ section.entry-content.clearfix {
   }
 }
 
-.right { 
+.dark { 
   header.photo-header-background {
-    h5.top-tag, 
+    h5.top-tag a, 
     h1.entry-title, 
     h2.subtitle  {
-      margin-left: 50%;
+      color: black;
+      text-shadow: none;
     }
   }
 }
 
+.top {
+  header.photo-header-background {
+    padding-top: 4em;
+    padding-bottom: 16em;
+  }
+}
 
 // Copy the widths that we apply to .entry-content in single posts/pages and apply them to these elements so that there is a similar visual appearance.
 .photo-header #header-html {
