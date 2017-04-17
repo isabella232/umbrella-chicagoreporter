@@ -1,3 +1,84 @@
 .global-nav ul a {
   font-weight: bold;
 }
+
+
+//Chicago Reporter Article Page
+body.photo-header {
+	.sticky-nav-holder.main_nav_hide_article, 
+	.sticky-nav-holder.sticky_nav_display {
+	    display: block!important;
+	}
+
+	.sticky-nav-holder {
+	    opacity: 1!important;
+	    visibility: visible!important;
+	}
+
+	#site-header, #main-nav, #secondary-nav {
+		display:none;
+	}
+
+}
+
+
+// header edits
+
+#site-header {
+    float: left;
+    max-width: 300px;
+}
+
+#home-upper-right {
+	display:none;
+}
+
+#main-nav.navbar {
+	position:relative;
+	border-bottom: 4px solid #c30;
+
+	.navbar-inner {
+	    border-bottom: none;
+	    float: left;
+	    width: 100%;
+	    padding-left: 300px;
+	    background: transparent;
+	    position: absolute;
+	    top: 40%;
+	    font-size: 1.25em;    
+	    box-sizing: border-box;
+
+	    .nav {
+	    	float:none;
+	    }
+
+	    li.donate-link {
+	    	float: right;
+	    	a {
+	    		color:#c30;
+	    	}
+	    	&:hover {
+    			background-color:#c30;
+    			a {
+    				background-color: transparent;
+    				color:#fff;
+    			}
+    		}
+	    }
+	    li.subscribe-link {
+	    	float: right;
+	    	a {
+	    		color:#000;
+
+	    		
+	    	}
+	    	&:hover {
+    			background-color:#000;
+    			a {
+    				background-color: transparent;
+    				color:#fff;
+    			}
+    		}
+	    }
+	}
+}
