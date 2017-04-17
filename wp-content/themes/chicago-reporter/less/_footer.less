@@ -3,14 +3,22 @@
  * =======================
  */
 
+#site-footer {
+  width:100%;
+
+  p {
+    font-size: 12px;
+  }
+}
+
 .footer-bg {
-  background-color: @gray_light;
+  background-color: @black;
 }
 #site-footer .widgettitle {
-  color: @black;
+  color: @white;
 }
 ul#footer-social li i {
-  color: @black;
+  color: @white;
   &:hover {
     color: @red;
   }
@@ -18,22 +26,112 @@ ul#footer-social li i {
 
 footer #boilerplate,
 #site-footer {
-  color: @black;
+  color: @white;
   font-family: @sans;
   p {
-    color: #333333;
+    color: @white;
   }
   a {
-    color: @red;
+    color: @white;
     font-weight: bold;
+    &:hover {
+      color:@red;
+      text-decoration:none;
+    }
   }
 }
 
 #menu-footer-navigation li {
   font-family: @title;
   font-weight: 500;
+  font-size: 1.1em;
   a {
-    color: @black;
+    color: @white;
     font-weight: bold;
   }
 }
+
+div#supplementary {
+    width: 50%;
+    float: left;
+    padding:48px 0 0;
+
+    .span4 {
+      width:30%
+      margin:0;
+
+      .widget h3 {
+          display: none;
+      }
+
+      &:first-of-type {
+        width: 65%;
+        padding-right: 15%;
+        text-align:center;
+      }
+    }
+
+    >div:last-of-type {
+      display: none;
+  }
+}
+
+footer #boilerplate {
+  width: 50%;
+  float: left;
+  padding:48px 0 0;
+  text-align:center;
+
+  #footer-social {
+    width: 50%;
+    float: left;
+    padding:0 0 0 10%;
+    text-align:left;
+    box-sizing:border-box;
+
+    li {        
+      width: 100%;
+      display: block;
+      height: 30px;
+    }
+
+    i::after {      
+        font-style: normal;
+        font-family: @title;
+        margin-left: 10px;
+        font-size: 1em;
+    }
+
+    .icon-facebook::after {
+        content: 'Facebook';
+    }
+    .icon-twitter::after {
+        content: 'Twitter';
+    }
+    .icon-youtube::after {
+        content: 'YouTube';
+    }
+    .icon-tumblr::after {
+        content: 'Tumblr';
+    }
+    .icon-instagram::after {
+        content: 'Instagram';
+    }
+    .icon-rss::after {
+        content: 'Subscribe';
+    }
+  }
+
+  .footer-bottom {
+    width: 50%;
+    float: right;
+    font-size:.8em;
+  }
+}
+
+#inn-logo {
+  background-color: #fff;
+  padding: 10px;
+  max-width:120px;
+}
+  
