@@ -45,7 +45,7 @@ add_action( 'after_setup_theme', 'largo_child_require_files', 11 );
 // Add OpenSans to the enqued fonts
 if( !function_exists( 'cr_scripts') ) {
 	function cr_scripts() {
-		wp_enqueue_style( 'open-sans-condensed', '//fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700,300,300italic' );
+		wp_enqueue_style( 'open-sans-condensed', '//fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:400,700' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'cr_scripts' );
