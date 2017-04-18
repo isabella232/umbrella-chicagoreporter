@@ -3,6 +3,16 @@
  */
 @import "_variables.less";
 
+h3.bar-above {
+  color:@black;
+  a {
+    color:@black;
+    &:hover {
+      color: @black;
+    }
+  }
+}
+
 .bar-above::before{
   display: block;
   clear: both;
@@ -15,7 +25,7 @@
   // this really should be a separate class but it is only used here
   text-transform: uppercase;
 }
-h3, h5 {
+h3, h4 {
   font-family: @title;
 }
 
@@ -167,11 +177,96 @@ h3, h5 {
   }
 }
 
-#sidebar {
-  .widget {
-    border-top: 4px @red solid;
-    background-color: @fog_light;
-    padding: 24px;
+#support-ctas {
+  >h3 {
+    font-size: 2em;
+    text-align: center;
+    color: @blue;
+    border-bottom: 1px solid #ccc;
+    padding: 0 0 .5em;
+    margin-bottom:1em;
+  }
+
+  .cta {
+    border-bottom: 1px solid #ccc;
+    padding: 0 0 2em;
+    margin-bottom:2em;
+    display:flex;
+
+    .number {
+      display: inline-block;
+      width: 12%;
+      font-size: 2em;
+      font-family: @title;
+      font-weight: bold;
+      color: @red;
+      line-height: .8;
+    }
+
+    .cta-text {
+      display: inline-block;
+      width: 80%;
+
+      strong {
+        font-weight:bold;
+        color:@black;
+      }
+    }
+
+    h3 {
+      margin-bottom:.25em;
+
+      a {
+        color:@black;
+        &:hover {
+          color:@blue;
+          text-decoration:none;
+        }
+      }
+    } 
+    p {
+      margin-bottom:.25em;
+    }
+
+    button {
+      background-color: @blue;
+      border: none;
+      padding: .5em 1em;
+      font-weight: bold;
+      color: white;
+      font-family:@title;
+
+      &:hover {
+        background-color:saturate(@blue,20%);
+      }
+    }
+
+    img {
+      max-width: 40%;
+      float: left;
+      margin-right: 10px;
+      margin-top: .125em;
+      border: 1px solid #ccc;
+    }
+
+    &:nth-of-type(2) {
+      a:first-of-type {
+        button {
+          background-color: fade(@blue, 50%);
+        }
+      }
+      a:nth-of-type(2) {
+        button {
+          background-color: fade(@blue, 75%);
+        }
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom:0;
+      padding-bottom:0;
+      border-bottom:none;
+    }
   }
 }
 
