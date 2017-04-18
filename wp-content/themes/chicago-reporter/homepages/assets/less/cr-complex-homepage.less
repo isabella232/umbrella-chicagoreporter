@@ -168,14 +168,14 @@ h3, h4 {
 #beats_menu {
   margin-bottom: 3em;
 
-  #beats_menu .main-menu-item {
+  .main-menu-item {
       position: relative;
   }
 
   a span {
     display: block;
     padding: 0.3em 0.5em;
-    background-color: fade(@blue,20%);
+    background-color: fade(@blue,80%);
     color: @white;
     font-size: 1.25em;
     box-sizing: border-box;
@@ -286,6 +286,18 @@ h3, h4 {
   }
 }
 
+@media ( max-width: 1024px ) { 
+  #beats_menu .span3 {
+    // effectively span6
+    width: 48.93617021%;
+    margin-bottom: 1em;
+    &:nth-child( odd ) {
+      margin-left: 0;
+      clear: left;
+    }
+  }
+}
+
 @media ( max-width: 768px ) {
   .row .span8,
   .row .span4 {
@@ -311,15 +323,6 @@ h3, h4 {
   .top-story {
     h2 {
       font-size: 40px
-    }
-  }
-  #beats_menu .span3 {
-    // effectively span6
-    width: 48.93617021%;
-    margin-bottom: 1em;
-    &:nth-child( odd ) {
-      margin-left: 0;
-      clear: left;
     }
   }
 }
