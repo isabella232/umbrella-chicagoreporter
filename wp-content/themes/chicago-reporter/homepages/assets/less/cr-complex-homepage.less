@@ -170,6 +170,13 @@ h3, h4 {
 
   .main-menu-item {
       position: relative;
+      
+      &:hover {
+        a span {
+          color: @white;
+          background-color:@blue;
+        }
+    }
   }
 
   a span {
@@ -185,11 +192,6 @@ h3, h4 {
     position: absolute;
     bottom: 0;
     width: 100%;
-
-    &:hover {
-      color: @white;
-      background-color:@blue;
-    }
   }
 }
 

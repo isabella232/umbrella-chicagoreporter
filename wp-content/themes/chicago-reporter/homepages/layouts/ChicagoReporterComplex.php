@@ -231,7 +231,7 @@ class Beats_Menu_Walker extends Walker_Nav_Menu {
 		// get the featured media image for the category
 		if ( isset ( $item->object ) && $item->object === 'category' ) {
 			$post_id = largo_get_term_meta_post( $item->object, $item->object_id );
-			$image = get_the_post_thumbnail( $post_id, 'medium' );
+			$image = get_the_post_thumbnail( $post_id, 'large' );
 
 			if ( ! empty( $image ) ) {
 				$classes[] = 'has-image';
