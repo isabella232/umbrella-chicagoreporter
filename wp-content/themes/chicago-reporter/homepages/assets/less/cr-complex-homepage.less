@@ -31,6 +31,9 @@ h3, h4 {
 
 #homepage-top-sidebar,
 #homepage-middle-image {
+  h5 {
+    font-family:@title;
+  }
   h5 a {
     color: @black;
     &:hover {
@@ -49,8 +52,8 @@ h3, h4 {
     font-family: @sans;
     &:hover {
       color: @white;
-      text-decoration: underline;
-      background-color: lighten( @black, 10% );
+      text-decoration: none;
+      background-color: @red;
     }
   }
   img {
@@ -138,6 +141,10 @@ h3, h4 {
 .sub-stories,
 #homepage-middle-image {
   margin-bottom: 2em;
+
+  p {
+    font-size:16px;
+  }
 }
 .sub-stories {
   article {
@@ -280,10 +287,6 @@ h3, h4 {
     margin: 1em;
     clear: both;
     text-align: center;
-  }
-  .sub-stories p,
-  #homepage-middle-image p {
-    font-size: 16px;
   }
 
   // do not let images get irresponsibly huge, because we are using a smaller image size here
