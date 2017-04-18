@@ -167,19 +167,28 @@ h3, h4 {
 
 #beats_menu {
   margin-bottom: 3em;
+
+  #beats_menu .main-menu-item {
+      position: relative;
+  }
+
   a span {
     display: block;
     padding: 0.3em 0.5em;
-    background-color: @blue;
+    background-color: fade(@blue,20%);
     color: @white;
-    font-size: 1.5em;
+    font-size: 1.25em;
+    box-sizing: border-box;
     font-family: @sans;
     font-weight: bold;
     text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 
     &:hover {
       color: @white;
-      text-decoration: underline;
+      background-color:@blue;
     }
   }
 }
