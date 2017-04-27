@@ -8,19 +8,44 @@
 /* Custom Chicago Report variables */
 @import "_variables.less";
 
+.photo-header #wrapper {
+  margin:0;
+  background-color:#fff;
+  border-top:4px solid @red;
+}
+
 header.photo-header-background {
-  padding: 10em 0;
-  margin-bottom: 5em;
+  width:100%;
   background: no-repeat center center local;
+  background-color:@black;
   background-size: cover;
+  min-height: 90vh;
+  box-sizing: border-box;
+  position:fixed;
+  z-index:-1;
+}
+
+.logged-in header.photo-header-background {
+  top:80px;
+}
+
+.photo-header header.page-title {
+
+  .inner {
+    max-width:1170px;
+    margin:0 auto;
+    padding: 0 2.5%;
+    position:relative;
+    min-height:80vh;
+  }
 
   h1.entry-title,
   h5.top-tag,
-  h2.subtitle {
+  h2.subtitle,
+  .series-subhead {
     color: white;
     max-width: 500px;
-    text-shadow: .5px .5px 8px #000000;
-    margin-left: 8%;
+    text-shadow: .5px .5px 8px rgba(0,0,0,.5);
   }
 
   h1.entry-title {
@@ -39,15 +64,34 @@ header.photo-header-background {
     color: white;
   }
 
-  h2.subtitle {
+  h2.subtitle,
+  .series-subhead {
     font-family: @sans;
     font-weight: 300;
+    font-size:1.5em;
   }
 
 
 }
 h1.entry-title {
   font-size: 52px;
+}
+
+.single.photo-header {
+  #floating-social-buttons {
+    left:auto!important;
+  }
+  .series-label {
+    background-color: rgba(0,0,0,.5);
+
+    h5.entry-title {
+      color:white;
+      padding: .75em 0 .5em 0;
+      font-size: 1em;
+      max-width:1170px;
+      margin:0 auto;
+    }
+  }
 }
 
 section.entry-content.clearfix {
@@ -79,76 +123,202 @@ section.entry-content.clearfix {
 
 //Styles for Photo Header Plugin
 
-.left, .right {
-  float: none;
-  margin: inherit;
+// .left, .right {
+//   float: none;
+//   margin: inherit;
+// }
+
+// .right { 
+//   header.photo-header-background {
+//     h5.top-tag, 
+//     h1.entry-title, 
+//     h2.subtitle  {
+//       margin-left: 50%;
+//     }
+//   }
+// }
+
+// .center {
+//   header.photo-header-background {
+//     text-align: center;
+//     h1.entry-title,
+//     h2.subtitle,
+//     h5.top-tag {
+//       max-width: 500px;
+//       margin: 0 auto;
+//     }
+
+//     h1.entry-title {
+//       margin-bottom: 24px;
+//     }
+//   }
+// }
+
+// .dark { 
+//   header.photo-header-background {
+//     h5.top-tag a, 
+//     h1.entry-title, 
+//     h2.subtitle  {
+//       color: black;
+//       text-shadow: none;
+//     }
+//   }
+// }
+
+// .top {
+//   header.photo-header-background {
+//     padding-top: 4em;
+//     padding-bottom: 16em;
+//   }
+// }
+
+// .bottom {
+//   header.photo-header-background {
+//     padding-top: 16em;
+//     padding-bottom: 4em;
+//   }
+// }
+
+// // Copy the widths that we apply to .entry-content in single posts/pages and apply them to these elements so that there is a similar visual appearance.
+// .photo-header #header-html {
+//   h5, p {
+//     padding: 0 17.021276594%;
+//     @media @tabletDown {
+//       padding: 0 @fluidGridColumnWidth;
+//     }
+//     @media @mobile {
+//       padding: 0;
+//     }
+//   }
+// }
+
+
+.cftl-tax-landing-template-series-landing-photo-header {
+  header.photo-header-background {
+    min-height: 60vh;
+    max-height:60vh;
+  }
+  &.photo-header header.page-title {
+    .inner {
+      min-height:50vh;
+    }
+  }
+
+  #wrapper {
+    z-index: 2;
+  }
+  #series-header {
+    border-bottom:0;
+    padding-top:30vh;
+
+  }
+
+  .series-social {
+    width:100%;
+    position:relative;
+
+    .post-social>span {
+      margin:0;
+    }
+
+    .rss-subscribe-link {
+      position:absolute;
+      right:0;
+      top:16px;
+      font-size:80%;
+    }
+  }
+
 }
 
-.right { 
-  header.photo-header-background {
-    h5.top-tag, 
-    h1.entry-title, 
-    h2.subtitle  {
-      margin-left: 50%;
+#embedded-html {
+  position:relative;
+
+  .entry-content {
+    max-width:800px;
+    margin:0 auto;
+
+    h1 {
+      text-align:center;
+      font-size:4em;
+      margin:0 0 .5em 0;
     }
+  }
+
+  .full-width-visual {
+    width:100%;
+    position: absolute;
+    left: 0;
+    padding:1em 0;
   }
 }
 
-.center {
-  header.photo-header-background {
-    text-align: center;
-    h1.entry-title,
-    h2.subtitle,
-    h5.top-tag {
-      max-width: 500px;
-      margin: 0 auto;
-    }
+.action-box {
+  padding: 2em 0;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 
-    h1.entry-title {
-      margin-bottom: 24px;
+  a {
+    margin-top: 1em;
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    background-color: @red;
+    color: @white;
+    font-family: @title;
+    text-transform:uppercase;
+    font-weight:bold;
+    font-size:16px;
+    &:hover {
+      color: @white;
+      text-decoration: none;
+      background-color: @black;
     }
+  }
+
+}
+
+
+
+
+.series-divider {
+  width:100%;
+  .divider-line {
+    background-color:@red;
+    width:20%;
+    height:4px;
+    margin:4em auto;
   }
 }
 
-.dark { 
-  header.photo-header-background {
-    h5.top-tag a, 
-    h1.entry-title, 
-    h2.subtitle  {
-      color: black;
-      text-shadow: none;
+#series-intro {
+  display:flex;
+  justify-content:space-between;
+  padding-top:3em;
+
+  .series-description {
+    width:68%;
+    p {
+      font-size:1.25em;
     }
   }
-}
-
-.top {
-  header.photo-header-background {
-    padding-top: 4em;
-    padding-bottom: 16em;
-  }
-}
-
-.bottom {
-  header.photo-header-background {
-    padding-top: 16em;
-    padding-bottom: 4em;
-  }
-}
-
-// Copy the widths that we apply to .entry-content in single posts/pages and apply them to these elements so that there is a similar visual appearance.
-.photo-header #header-html {
-  h5, p {
-    padding: 0 17.021276594%;
-    @media @tabletDown {
-      padding: 0 @fluidGridColumnWidth;
-    }
-    @media @mobile {
-      padding: 0;
+  .series-action {
+    width:28%;
+    text-align:center;
+    a {
+      width:100%;
+      text-align:center;
+      box-sizing:border-box;
     }
   }
 }
 
 .photo-header #series-main {
+  clear:both;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+
   .entry-title {
     clear: both;
   }
@@ -156,32 +326,60 @@ section.entry-content.clearfix {
   article {
     box-sizing: border-box;
     border-bottom: none;
+    clear:both;
+    width:33.333%;
+    padding: 0;
 
-    @media (min-width: 768px) {
-      width: 31.91489361%;
-      display: block;
-      float: left;
-
-      @interrowpad: 4%;
-
-      &:nth-child( 3n+1 ) {
-        clear: left;
-        padding-right: 0.6665 * @interrowpad;
-      }
-      &:nth-child( 3n+2 ) {
-        padding-left: 0.3333 * @interrowpad;
-        padding-right: 0.3333 * @interrowpad;
-      }
-      &:nth-child( 3n+3 ) {
-        padding-left: 0.6665 * @interrowpad;
-      }
+    img.attachment-post-thumbnail {
+      float: none;
+      min-width:100%;
     }
+
+    .byline {
+      margin: 1em 0;
+    }
+
+    .byline .avatar,
+    .twitter,
+    .edit-link {
+      display:none;
+    }
+
+    .entry-content p {
+      margin-bottom:0;
+      font-size:16px;
+    }
+
     img.wp-post-image {
       margin: 4px 0 6px 0;
+    }
+
+    &:nth-child( 3n+1 ) {padding:0 2em 0 0;}
+    &:nth-child( 3n+2 ) {padding:0 1em 0 1em;}
+    &:nth-child( 3n+3 ) {padding:0 0 0 2em;}
+
+  }
+
+  @media (max-width: 1024px) {
+    article {
+      width:50%;
+
+      &:nth-child( odd ) {padding:0 1em 0 0;}
+      &:nth-child( even ) {padding:0 0 0 1em;}
+    }
+  }
+  @media (max-width: 480px) {
+    article {
+      width:100%;
+
+      &:nth-child( odd ) {padding:0 0 0 0;}
+      &:nth-child( even ) {padding:0 0 0 0;}
     }
   }
 }
 #nav-below {
   clear: both;
   text-align: center;
+  width:100%;
+  margin:2em;
 }

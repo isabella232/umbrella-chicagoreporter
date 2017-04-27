@@ -47,6 +47,16 @@ if( !function_exists( 'cr_scripts') ) {
 	function cr_scripts() {
 		wp_enqueue_style( 'open-sans-condensed', '//fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:400,700' );
 	}
+
+	//if ( is_page_template( 'single-photo-header.php' ) | is_page_template( 'series-landing-photo-header.php' ) ) {
+		wp_enqueue_script(
+			'series-photo-header',
+			get_stylesheet_directory_uri() . '/js/photo-header.js',
+			array('jquery'),
+			'1.0',
+			true
+		);
+	//}
 }
 add_action( 'wp_enqueue_scripts', 'cr_scripts' );
 
@@ -90,3 +100,42 @@ add_action('init', 'cr_image_sizes', 9); // Largo homepage init uses priority 0,
 			</a>
 		<?php
 	}
+
+
+// [action-box message="foo-value" ]
+function action_func( $atts ) {
+    $a = shortcode_atts( array(
+        'message' => 'something',
+    ), $atts );
+
+    return '<div class="action-box"><div class="action-message">' . "{$a['message']}" . '</div><a href="http://salsa3.salsalabs.com/o/50480/p/salsa/web/common/public/signup?signup_page_KEY=8841">Join</a></div>';
+}
+add_shortcode( 'action-box', 'action_func' );
+
+function cr_cmb2_fields() {
+
+	// Start with an underscore to hide fields from custom fields list
+	$prefix = '_cr_';
+
+	/**
+	 * Initiate the metabox
+	 */
+	$cmb = new_cmb2_box( array(
+		'id'            => 'subhead',
+		'title'         => __( 'Subhead', 'largo' ),
+		'object_types'  => array( 'cftl-tax-landing', ), // Post type
+		'context'       => 'side',
+		'priority'      => 'low',
+		'show_names'    => false, // Show field names on the left
+	) );
+
+	$cmb->add_field( array(
+		'name'       => __( 'Subhead', 'largo' ),
+		'desc'       => __( '', 'largo' ),
+		'id'         => $prefix . 'subhead',
+		'type'       => 'text',
+		'sanitization_cb' => 'sanitize_text_field', // custom sanitization callback parameter
+	) );
+
+}
+add_action( 'cmb2_admin_init', 'cr_cmb2_fields' );

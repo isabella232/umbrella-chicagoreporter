@@ -9,9 +9,9 @@ function cr_ddcpc_options( $options ) {
 			'name' => 'vert-alignment',
 			'options' => array(
 				// class string as output in HTML => display text
-				'top' => 'Top',
-				'middle' => 'Middle',
-				'bottom' => 'Bottom',
+				'ddcpc-top' => 'Top',
+				'ddcpc-middle' => 'Middle',
+				'ddcpc-bottom' => 'Bottom',
 			),
 		),
 		array(
@@ -19,9 +19,9 @@ function cr_ddcpc_options( $options ) {
 			'name' => 'horiz-alignment',
 			'options' => array(
 				// class string as output in HTML => display text
-				'left' => 'Left',
-				'center' => 'Center',
-				'right' => 'Right',
+				'ddcpc-left' => 'Left',
+				'ddcpc-center' => 'Center',
+				'ddcpc-right' => 'Right',
 			),
 		),
 		array(
@@ -29,8 +29,8 @@ function cr_ddcpc_options( $options ) {
 			'name' => 'color-option',
 			'options' => array(
 				// class string as output in HTML => display text
-				'dark' => 'Dark text',
-				'light' => 'Light text',
+				'ddcpc-dark' => 'Dark text',
+				'ddcpc-light' => 'Light text',
 			),
 		),
 	));
