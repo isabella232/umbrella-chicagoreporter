@@ -15,9 +15,8 @@ add_filter( 'body_class', function( $classes ) {
 $series = wp_get_post_terms($post->ID, 'series', array("fields" => "all"));
 
 
-// todo benlk: may need to change this to use a different header if we're gonna force sticky
 get_header( "longform" );
-//get_header();
+
 ?>
 
 
@@ -28,7 +27,7 @@ get_header( "longform" );
 
 <header class="page-title">
 	<?php if ( $series[0] ) : ?>
-		<div class="series-label">
+		<div class="series-top-label">
 			<h5 class="entry-title"><?php echo $series[0]->name; ?></h5>
 		</div>
 	<?php endif; ?>
@@ -112,7 +111,7 @@ get_header( "longform" );
 
 				get_template_part( 'partials/content', $partial );
 
-				if ( $partial === 'single' ) {
+				if ( $partial === 'single-photo-header' ) {
 
 					do_action( 'largo_before_post_bottom_widget_area' );
 

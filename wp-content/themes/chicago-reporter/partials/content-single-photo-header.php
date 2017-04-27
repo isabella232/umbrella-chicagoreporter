@@ -21,15 +21,23 @@
 
 	<?php get_sidebar(); ?>
 
-	<caption><?php echo get_post(get_post_thumbnail_id())->post_excerpt; ?></caption>
+	<header class="entry-header">
 
-	<section class="entry-content clearfix" itemprop="articleBody">
+		<figcaption class="series-featured-caption"><?php echo get_post(get_post_thumbnail_id())->post_excerpt; ?></figcaption>
 
 		<h5 class="byline"><?php largo_byline(); ?></h5>
+		<?php echo do_shortcode('[action-box message="Want the latest from the reporter delivered straight to your inbox? Subscribe to our free email newsletter."]'); ?>
+	</header>
+
+	<section class="entry-content clearfix" itemprop="articleBody">
 
 		<?php largo_entry_content( $post ); ?>
 
 	</section>
+
+	<div class="series-divider">
+		<div class="divider-line"></div>
+	</div>
 
 	<?php do_action('largo_after_post_content'); ?>
 
