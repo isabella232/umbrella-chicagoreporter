@@ -54,11 +54,17 @@ header.photo-header-background {
 
   padding-top:55px;
 
+  .series-top-label {
+    position: relative;
+    z-index: 100;
+  }
+
   .inner {
     max-width:1170px;
     margin:0 auto;
     padding: 0 2.5%;
-    position:relative;
+    position: relative;
+    z-index: 10;
     min-height: 86vh;
     box-sizing: border-box;
     top: -56px;
@@ -186,6 +192,10 @@ h1.entry-title {
       font-size: 1em;
       max-width:1170px;
       margin:0 auto;
+      a {
+        color: white;
+        font-family: inherit;
+      }
     }
   }
   #content .entry-content p:first-child:first-letter {

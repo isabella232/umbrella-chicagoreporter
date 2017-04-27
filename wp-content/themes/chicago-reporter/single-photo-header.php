@@ -14,7 +14,6 @@ add_filter( 'body_class', function( $classes ) {
 
 $series = wp_get_post_terms($post->ID, 'series', array("fields" => "all"));
 
-
 get_header( "longform" );
 
 ?>
@@ -28,7 +27,7 @@ get_header( "longform" );
 <header class="page-title">
 	<?php if ( $series[0] ) : ?>
 		<div class="series-top-label">
-			<h5 class="entry-title"><?php echo $series[0]->name; ?></h5>
+			<h5 class="entry-title"><a href="<?php echo get_term_link( $series[0] ); ?>" ><?php echo $series[0]->name; ?></a></h5>
 		</div>
 	<?php endif; ?>
 	<div class="inner">
