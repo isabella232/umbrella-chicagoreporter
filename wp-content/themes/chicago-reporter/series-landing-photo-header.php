@@ -98,11 +98,6 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 		<?php 
 			
 			get_template_part( 'partials/nav', 'sticky' ); 
-			
-			if ( of_get_option( 'leaderboard_enabled' ) == TRUE ) {
-				get_template_part( 'partials/header-ad-zone' );
-			}
-
 			/**
 			 * Fires before the Largo header content.
 			 *

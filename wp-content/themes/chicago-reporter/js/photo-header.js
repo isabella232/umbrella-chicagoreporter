@@ -8,10 +8,13 @@
 		var $ = jQuery;
 		// sticky nav
 		var nav = $('#site-navigation.lf-sticky');
+		var photo = $('.photo-header-background');
 		if(scrollY >= win_height) {
-			nav.show();
+			//nav.show();
+			photo.css('opacity',0);
 		} else {
-			nav.hide();
+			//nav.hide();
+			photo.css('opacity',1);
 		}
 
 	}
@@ -49,7 +52,7 @@
 			if (win_width>1170) {
 				margin = -(full_width - content_width)/2;
 			} else if (win_width>550) {
-				margin = -(win_width - content_width)/2;
+				margin = -(full_width - content_width)/2;
 			} else {
 				margin = 0;
 			}

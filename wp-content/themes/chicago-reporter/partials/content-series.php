@@ -10,7 +10,7 @@ $values = get_post_custom( $post->ID );
 $featured = has_term( 'homepage-featured', 'prominence' )
 ?>
 
-<header></header>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
 
 	<div class="entry-content">
