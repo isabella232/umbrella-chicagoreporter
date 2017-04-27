@@ -36,7 +36,6 @@ get_header( "longform" );
 			<?php largo_maybe_top_term(); ?>
 
 			<h1 class="entry-title" itemprop="headline"><?php the_title(); ?></h1>
-			<h2 class="subtitle">Test subtitle goes here here here because the subtitle field isn't working<?php echo $subtitle ?></h2>
 			<?php if ( $subtitle = get_post_meta( $post->ID, 'subtitle', true ) ) : ?>
 				<h2 class="subtitle"><?php echo $subtitle ?></h2>
 			<?php endif; ?>
