@@ -39,10 +39,10 @@ class ChicagoReporterComplex extends Homepage {
 					'name' 			=> __( 'Homepage Featured', 'largo' ),
 					'description' 	=> __( 'If you are using the Newspaper or Carousel optional homepage layout, add this label to posts to display them in the featured area on the homepage.', 'largo' ),
 					'slug' 			=> 'homepage-featured'
-				)
+				),
 			),
 		);
-		$options = array_merge($defaults, $options);
+		$options = array_merge( $options, $defaults );
 		$this->init( $options );
 		$this->load( $options );
 	}
@@ -193,6 +193,32 @@ function cr_complex_homepage_layout() {
 	register_homepage_layout( 'ChicagoReporterComplex' );
 }
 add_action( 'init', 'cr_complex_homepage_layout' );
+
+/**
+ * The Largo function that's supposed to do this in the homepage class doesn't quite do it, for some reason
+ *
+ * @since Largo 0.5.5.3
+ */
+function cr_complex_homepage_terms() {
+	$terms = array(
+		array(
+			'name' 			=> __( 'Homepage Bottom', 'largo' ),
+			'description' 	=> __( 'Posts with this term can appear in the bottom of the homepage.', 'largo' ),
+			'slug' 			=> 'homepage-bottom'
+		)
+	);
+	foreach ( $terms as $term ) {
+		if ( ! term_exists( $term['slug'], 'prominence' ) ) {
+			wp_insert_term(
+				$term['name'],
+				'prominence',
+				$term
+			);
+		}
+	}
+}
+add_action( 'init', 'cr_complex_homepage_terms', 100);
+
 
 /**
  * Custom nav walker class so we can put term featured media on the links
