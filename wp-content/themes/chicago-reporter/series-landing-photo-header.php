@@ -182,8 +182,13 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 		$args = array(
 			'p' 				=> '',
 			'post_type' 		=> 'post',
-			'taxonomy' 			=> 'series',
-			'term' 				=> $series,
+			'tax_query' 		=> array(
+				array(
+					'taxonomy' => 'series',
+					'field' => 'slug',
+					'terms'  => $series,
+				)
+			),
 			'order' 			=> 'DESC',
 			'posts_per_page' 	=> 6 // should be 9
 		);
@@ -214,9 +219,11 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 		$series_query = new WP_Query($args);
 		$counter = 1;
 		while ( $series_query->have_posts() ) : $series_query->the_post();
-			get_template_part( 'partials/content', 'series' );
-			do_action( 'largo_loop_after_post_x', $counter, $context = 'archive' );
-			$counter++;
+			if ( !has_term('landing-hide','prominence',$post->ID) ){
+				get_template_part( 'partials/content', 'series' );
+				do_action( 'largo_loop_after_post_x', $counter, $context = 'archive' );
+				$counter++;
+			}
 		endwhile;
 		wp_reset_postdata();
 
