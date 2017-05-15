@@ -22,7 +22,14 @@
 	<?php get_sidebar(); ?>
 
 	<header class="entry-header">
-
+		
+		<?php 
+			$thumb_custom = get_post_custom(get_post_thumbnail_id()); 
+			
+			if ( $thumb_custom['_media_credit'][0] ) {
+				echo '<p class="wp-media-credit">' . $thumb_custom['_media_credit'][0] . '</p>';
+			}
+		?>
 		<figcaption class="series-featured-caption"><?php echo get_post(get_post_thumbnail_id())->post_excerpt; ?></figcaption>
 
 		<h5 class="byline"><?php largo_byline(); ?></h5>
