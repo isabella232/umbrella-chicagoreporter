@@ -46,17 +46,18 @@ add_action( 'after_setup_theme', 'largo_child_require_files', 11 );
 if( !function_exists( 'cr_scripts') ) {
 	function cr_scripts() {
 		wp_enqueue_style( 'open-sans-condensed', '//fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:400,700' );
-	}
 
-	//if ( is_page_template( 'single-photo-header.php' ) | is_page_template( 'series-landing-photo-header.php' ) ) {
-		wp_enqueue_script(
-			'series-photo-header',
-			get_stylesheet_directory_uri() . '/js/photo-header.js',
-			array('jquery'),
-			'1.0',
-			true
-		);
-	//}
+		global $template;
+		if( ( is_single() && basename($template) == 'single-photo-header.php' ) || is_page_template( 'series-landing-photo-header.php' ) ){
+			wp_enqueue_script(
+				'series-photo-header',
+				get_stylesheet_directory_uri() . '/js/photo-header.js',
+				array('jquery'),
+				'1.0',
+				true
+			);
+		}
+	}
 }
 add_action( 'wp_enqueue_scripts', 'cr_scripts' );
 
