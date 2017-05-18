@@ -33,7 +33,7 @@
 		<figcaption class="series-featured-caption"><?php echo get_post(get_post_thumbnail_id())->post_excerpt; ?></figcaption>
 
 		<h5 class="byline"><?php largo_byline(); ?></h5>
-		<?php echo do_shortcode('[action-box message="Want the latest from the reporter delivered straight to your inbox? Subscribe to our free email newsletter."]'); ?>
+		<?php echo do_shortcode('[action-box message="Want the latest from the Reporter delivered straight to your inbox? Subscribe to our free email newsletter."]'); ?>
 	</header>
 
 	<section class="entry-content clearfix" itemprop="articleBody">

@@ -87,7 +87,7 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 				<?php echo apply_filters( 'the_content', $post->post_excerpt ); ?>
 			</div>
 			<div class="series-action">
-			<?php echo do_shortcode('[action-box message="Want the latest from the reporter delivered straight to your inbox? Subscribe to our free email newsletter."]'); ?>
+			<?php echo do_shortcode('[action-box message="Want the latest from the Reporter delivered straight to your inbox? Subscribe to our free email newsletter."]'); ?>
 			</div>
 		</div>
 
@@ -183,14 +183,21 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 			'p' 				=> '',
 			'post_type' 		=> 'post',
 			'tax_query' 		=> array(
+				'relation' => 'AND',
 				array(
 					'taxonomy' => 'series',
 					'field' => 'slug',
-					'terms'  => $series,
+					'terms'  => $series
+				),
+				array(
+				    'taxonomy'  => 'prominence',
+				    'field'     => 'slug',
+				    'terms'     => 'landing-hide',
+				    'operator'  => 'NOT IN'
 				)
 			),
 			'order' 			=> 'DESC',
-			'posts_per_page' 	=> 6 // should be 9
+			'posts_per_page' 	=> 6 // could be 9
 		);
 
 		//stores original 'paged' value in 'pageholder'
