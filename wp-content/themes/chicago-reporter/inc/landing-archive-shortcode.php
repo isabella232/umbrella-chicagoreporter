@@ -69,7 +69,9 @@ function landing_archive( $atts ) {
 			<select name="landing-year" id="landing-year">
 				<option value="">- All - </option>
 				<?php
-				for ( $i = date('Y'); $i >= 2003; $i-- ) {
+
+				$year = ( $options['taxonomy'] === 'catalyst-issues' ) ? 1995 : 2003 ;
+				for ( $i = date('Y'); $i >= $year; $i-- ) {
 					echo '<option value="' . $i . '" ' . selected($_GET['issue-year'], $i, false) . '>' . $i . "</option>";
 				}
 			?></select>
