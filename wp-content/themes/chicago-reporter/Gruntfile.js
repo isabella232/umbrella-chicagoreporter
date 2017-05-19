@@ -9,7 +9,9 @@ module.exports = function(grunt) {
 
     var CSS_LESS_FILES = {
         'css/chicagoreporter.css': 'less/chicagoreporter.less',
+        'css/photo-header.css': 'less/photo-header.less',
         'homepages/assets/css/cr_homepage.css': 'homepages/assets/less/cr_homepage.less',
+        'homepages/assets/css/cr-complex-homepage.css': 'homepages/assets/less/cr-complex-homepage.less',
     };
 
     grunt.initConfig({
