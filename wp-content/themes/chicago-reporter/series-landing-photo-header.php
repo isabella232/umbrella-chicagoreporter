@@ -143,7 +143,7 @@ if ( 'cftl-tax-landing' == $post->post_type ) {
 			do_action( 'largo_main_top' ); ?>
 
 		<div id="content" role="main">
-
+		<header></header>
 
 	<?php
 		/**
