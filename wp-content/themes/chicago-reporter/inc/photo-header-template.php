@@ -31,18 +31,18 @@ function cr_ph_header_tag( $post = null ) {
 		// - there's no reason to use half those image sizes
 		$sizes = array(
 			// registered image size name => width in pixels
-			'medium' => '336',
-			'large' => '771',
-			'two-third-full' => '780',
-			'rect_thumb' => '800', // this is 800x400 exact, we may not want to keep it
-			'full' => '1170',
+			//'medium' => '336', // too small
+			//'large' => '771',  // still too small
+			//'two-third-full' => '780', // still too small
+			//'rect_thumb' => '800', // this is 800x400 exact, we may not want to keep it
+			'full' => '1170',  
 		);
 
 		// loop through the image sizes and generate media queries!
 		$prior_size = 0;
 		foreach ( $sizes as $slug => $width ) {
 			$media_query = <<<'EOF'
-				@media (min-width: %1$spx) and (max-width: %2$spx) {
+				@media (min-width: %1$spx) {
 					%3$s {
 						background-image: url(%4$s);
 					}
@@ -76,6 +76,8 @@ EOF;
 		);
 
 		echo '</style>';
+
+		//echo '<script>var big_image = "' . wp_get_attachment_url( $post ) . '";</script>';
 	}
 
 	printf(
