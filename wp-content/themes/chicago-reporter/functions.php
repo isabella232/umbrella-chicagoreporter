@@ -24,6 +24,7 @@ function largo_child_require_files() {
 		'/inc/tax-shortcode.php',
 		'/inc/thumb-shortcode.php',
 		'/inc/post-tags.php',
+		'/inc/open-graph.php',
 		'/inc/photo-header-template.php',
 		'/inc/widgets/cr-magazine-widget.php',
 		'/homepages/layouts/ChicagoReporter.php',
