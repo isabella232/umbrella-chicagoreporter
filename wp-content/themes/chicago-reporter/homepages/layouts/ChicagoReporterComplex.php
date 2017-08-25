@@ -170,7 +170,7 @@ class ChicagoReporterComplex extends Homepage {
 					<a href="<?php echo get_permalink( $featured->ID ); ?>"><?php echo get_the_post_thumbnail( $featured->ID, 'large' ); ?></a>
 					<?php largo_maybe_top_term( array( 'post'=> $featured->ID ) ); ?>
 					<h3><a href="<?php echo get_permalink( $featured->ID ); ?>"><?php echo $featured->post_title; ?></a></h3>
-					<h5 class="byline"><?php largo_byline( true, true, $featured ); ?></h5>
+					<h5 class="byline"><?php largo_byline( true, false, $featured ); ?></h5>
 					<?php
 						largo_excerpt( $featured, 2, null, null, true, false );
 					?>
