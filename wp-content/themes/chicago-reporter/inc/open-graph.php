@@ -36,6 +36,7 @@ function cr_opengraph() {
 				?>
 				<meta name="twitter:title" content="<?php the_title(); ?>" />
 				<meta name="twitter:description" content="<?php echo strip_tags( esc_html( get_the_excerpt() ) ); ?>" />
+				<?php
 				/*
 				 * generate a twitter:image URL
 				 * @link https://dev.twitter.com/cards/types/summary-large-image
@@ -44,6 +45,7 @@ function cr_opengraph() {
 					'<meta name="twitter:image" content="%1$s">',
 					get_the_post_thumbnail_url( null, 'medium' )
 				);
+				?>
 
 				<meta property="og:title" content="<?php the_title(); ?>" />
 				<meta property="og:type" content="article" />
