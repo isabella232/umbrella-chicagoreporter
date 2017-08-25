@@ -36,12 +36,24 @@ function cr_opengraph() {
 				if ( get_the_author_meta( 'twitter' ) && !get_post_meta( $post->ID, 'largo_byline_text' ) )
 					echo '<meta name="twitter:creator" content="@' . largo_twitter_url_to_username( get_the_author_meta( 'twitter' ) ) . '">';
 				?>
-				<meta name="twitter:card" content="summary_large_image">
 				<meta property="og:title" content="<?php the_title(); ?>" />
 				<meta property="og:type" content="article" />
 				<meta property="og:url" content="<?php the_permalink(); ?>"/>
 				<meta property="og:description" content="<?php echo strip_tags( esc_html( get_the_excerpt() ) ); ?>" />
 				<meta name="description" content="<?php echo strip_tags( esc_html( get_the_excerpt() ) ); ?>" />
+
+				<meta name="twitter:card" content="summary_large_image">
+				<?php
+					/*
+					 * generate a twitter:image URL
+					 * @link https://dev.twitter.com/cards/types/summary-large-image
+					 */
+					printf(
+						'<meta name="twitter:image" content="%1$s">',
+						get_the_post_thumbnail_url( null, 'medium' )
+					);
+
+				?>
 			<?php
 			} // have_posts
 
