@@ -24,7 +24,7 @@ $featured = has_term( 'homepage-featured', 'prominence' )
 			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => __( 'Permalink to', 'largo' ) . ' ' ) )?>" rel="bookmark"><?php the_title(); ?></a>
 		</h2>
 
-		<h5 class="byline"><?php largo_byline(); ?></h5>
+		<h5 class="byline"><?php largo_byline( true, true ); ?></h5>
 
 		<?php largo_excerpt( $post, 5, true, __('', 'largo'), true, false ); ?>
 
