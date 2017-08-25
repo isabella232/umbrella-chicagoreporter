@@ -23,37 +23,34 @@ function cr_opengraph() {
 	// start the output, some attributes will be the same for all page types ?>
 
 
-	<?php
-		if ( of_get_option( 'twitter_link' ) )
-			echo '<meta name="twitter:site" content="@' . largo_twitter_url_to_username( of_get_option( 'twitter_link' ) ) . '">';
-	?>
-
 	<?php // output appropriate OG tags by page type
 		if ( is_single() ) {
 			if ( have_posts() ) {
+				?>
+				<meta name="twitter:card" content="summary_large_image">
+				<?php
 				the_post(); // we need to queue up the post to get the post specific info
 				
 				if ( get_the_author_meta( 'twitter' ) && !get_post_meta( $post->ID, 'largo_byline_text' ) )
 					echo '<meta name="twitter:creator" content="@' . largo_twitter_url_to_username( get_the_author_meta( 'twitter' ) ) . '">';
 				?>
+				<meta name="twitter:title" content="<?php the_title(); ?>" />
+				<meta name="twitter:description" content="<?php echo strip_tags( esc_html( get_the_excerpt() ) ); ?>" />
+				/*
+				 * generate a twitter:image URL
+				 * @link https://dev.twitter.com/cards/types/summary-large-image
+				 */
+				printf(
+					'<meta name="twitter:image" content="%1$s">',
+					get_the_post_thumbnail_url( null, 'medium' )
+				);
+
 				<meta property="og:title" content="<?php the_title(); ?>" />
 				<meta property="og:type" content="article" />
 				<meta property="og:url" content="<?php the_permalink(); ?>"/>
 				<meta property="og:description" content="<?php echo strip_tags( esc_html( get_the_excerpt() ) ); ?>" />
+
 				<meta name="description" content="<?php echo strip_tags( esc_html( get_the_excerpt() ) ); ?>" />
-
-				<meta name="twitter:card" content="summary_large_image">
-				<?php
-					/*
-					 * generate a twitter:image URL
-					 * @link https://dev.twitter.com/cards/types/summary-large-image
-					 */
-					printf(
-						'<meta name="twitter:image" content="%1$s">',
-						get_the_post_thumbnail_url( null, 'medium' )
-					);
-
-				?>
 			<?php
 			} // have_posts
 
@@ -105,6 +102,10 @@ function cr_opengraph() {
 		// see: https://support.google.com/webmasters/answer/1408986
 		if ( of_get_option( 'gplus_link' ) )
 			echo '<link href="' . esc_url( of_get_option( 'gplus_link' ) ) . '" rel="publisher" />';
+
+		if ( of_get_option( 'twitter_link' ) )
+			echo '<meta name="twitter:site" content="@' . largo_twitter_url_to_username( of_get_option( 'twitter_link' ) ) . '">';
+
 }
 
 // this runs on largo_child_require_files, on after_setup_theme, at priority 11: after Largo runs
