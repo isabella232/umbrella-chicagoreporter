@@ -110,7 +110,7 @@ function action_func( $atts ) {
         'message' => 'something',
     ), $atts );
 
-    return '<div class="action-box"><div class="action-message">' . "{$a['message']}" . '</div><a href="http://salsa3.salsalabs.com/o/50480/p/salsa/web/common/public/signup?signup_page_KEY=8841">Join</a></div>';
+    return '<div class="action-box"><div class="action-message">' . "{$a['message']}" . '</div><a href="https://www.chicagoreporter.com/signup/">Join</a></div>';
 }
 add_shortcode( 'action-box', 'action_func' );
 
