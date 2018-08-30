@@ -30,7 +30,7 @@ def production():
     env.user        = os.environ['FLYWHEEL_SFTP_USER']    # ssh user for production.
     env.password    = os.environ['FLYWHEEL_SFTP_PASS']    # ssh password for production.
     env.domain      = 'www.chicagoreporter.com'
-    env.port        = '2222'
+    env.port        = '22'
 
 
 @task
@@ -44,7 +44,7 @@ def staging():
     env.user        = os.environ['FLYWHEEL_SFTP_USER']    # ssh user for production.
     env.password    = os.environ['FLYWHEEL_SFTP_PASS']    # ssh password for production.
     env.domain      = 'staging.fast-plate.flywheelsites.com'  # chicagoreporte.staging.wpengine.com
-    env.port        = '2222'
+    env.port        = '22'
 
 try:
     from local_fabfile import  *
